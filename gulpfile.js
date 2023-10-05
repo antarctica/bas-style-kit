@@ -2,14 +2,14 @@
 /*eslint-env node */
 
 var fs   = require('fs'),
-    del  = require('del'),
+    del  = import('del'),
     path = require('path');
 
 var gulp         = require('gulp'),
     pump         = require('pump'),
     sri          = require('gulp-sri'),
     zip          = require('gulp-zip'),
-    sass         = require('gulp-sass'),
+    sass         = require('gulp-sass')(require('sass')),
     comb         = require('gulp-csscomb'),
     nano         = require('gulp-cssnano'),
     concat       = require('gulp-concat'),
@@ -20,6 +20,10 @@ var gulp         = require('gulp'),
     styleLint    = require('gulp-stylelint'),
     cssprefixer  = require('gulp-class-prefix'),
     autoprefixer = require('gulp-autoprefixer');
+
+var webpack       = require('webpack');
+var webpackJSConfig = require('./webpack.config.js');    
+var webpackJSMinifyConfig = require('./webpack.config.minify.js');    
 
 var bsk_package = require('./package.json');
 const bsk_version = bsk_package.version;
@@ -35,8 +39,6 @@ const config = {
     'bootstrap-sass': path.join('.', 'node_modules', 'bootstrap-sass'),
     'gill-sans': path.join('.', 'assets', 'webfonts', 'gill-sans'),
     'open-sans': path.join('.', 'assets', 'webfonts', 'open-sans'),
-    'bas-style-kit-js': path.join('.', 'bas-style-kit', '**/*.js'),
-    'bootstrap-overrides-js': path.join('.', 'bootstrap-overrides', '**/*.js'),
     'dist': path.join('.', 'dist'),
     'css': path.join('css'),
     'js': path.join('js'),
@@ -82,7 +84,7 @@ const config = {
 
 // Task definitions
 //
-// Tasks build from specific to general. It's likely you will want to run the more generic tasks.
+// Tasks build from specific to general. It's likely you will want to run the more general tasks.
 
 gulp.task('clean--css', cleanCss);
 gulp.task('clean--js', cleanJs);
@@ -91,14 +93,15 @@ gulp.task('clean--img', cleanImg);
 gulp.task('clean--dist-archive', cleanDistArchive);
 
 gulp.task('build--css-style-kit', buildCssStyleKit);
+gulp.task('build--css-style-kit-extra', buildCssStyleKitExtra);
 gulp.task('build--css-bootstrap', buildCssBootstrap);
 gulp.task('build--css-fonts', buildCssFonts);
 
 gulp.task('concat--css', concatCss);
-gulp.task('concat--js', concatJS);
+// gulp.task('concat--js', concatJS);
 
 gulp.task('minify--css', minifyCss);
-gulp.task('minify--js', minifyJs);
+// gulp.task('minify--js', minifyJs);
 
 gulp.task('copy--font--gill-sans', copyFontGillSans);
 gulp.task('copy--font--open-sans', copyFontOpenSans);
@@ -121,19 +124,22 @@ gulp.task('archive--dist', archiveDist);
 
 gulp.task('watch', watchBuild);
 
+gulp.task('build--js', webpackJsAssets);
+
 gulp.task('build--css', gulp.series(
   gulp.parallel(
     'build--css-style-kit',
+    'build--css-style-kit-extra',
     'build--css-bootstrap',
     'build--css-fonts'
   ),
   'concat--css',
   'minify--css'
 ));
-gulp.task('build--js', gulp.series(
-  'concat--js',
-  'minify--js'
-));
+// gulp.task('build--js', gulp.series(
+//   'concat--js',
+//   'minify--js'
+// ));
 gulp.task('copy--fonts', gulp.parallel(
   'copy--font--gill-sans',
   'copy--font--open-sans'
@@ -149,7 +155,6 @@ gulp.task('generate--favicon--manifests', gulp.parallel(
   'generate--favicon--web-manifest',
   'generate--favicon--browser-config'
 ));
-
 gulp.task('clean', gulp.parallel(
   'clean--css',
   'clean--js',
@@ -175,6 +180,29 @@ gulp.task('archive', gulp.parallel(
 ));
 
 // Tasks
+
+function webpackJsAssets() {
+  return new Promise((resolve, reject) => {
+    webpack(webpackJSConfig, (err, stats) => {
+        if (err) {
+            return reject(err)
+        }
+        if (stats.hasErrors()) {
+            return reject(new Error(stats.compilation.errors.join('\n')))
+        }
+        resolve()
+    })
+    webpack(webpackJSMinifyConfig, (err, stats) => {
+      if (err) {
+          return reject(err)
+      }
+      if (stats.hasErrors()) {
+          return reject(new Error(stats.compilation.errors.join('\n')))
+      }
+      resolve()
+  })
+  })
+}
 
 function cleanCss(done) {
   del([
@@ -230,6 +258,23 @@ function buildCssStyleKit(done) {
   );
 }
 
+function buildCssStyleKitExtra(done) {
+  pump(
+    [
+      gulp.src([
+        path.join(config.sources.stylesheets, 'styles-extra.scss')
+      ]),
+      sassvars({
+        '$bsk-version': config.variables["bsk-version"]
+      }),
+      sass().on('error', sass.logError),
+      comb(),
+      gulp.dest(path.join(config.destinations.dist, config.destinations.css))
+    ],
+    done
+  );
+}
+
 function buildCssBootstrap(done) {
   pump(
     [
@@ -273,7 +318,8 @@ function concatCss(done) {
       gulp.src([
         path.join(config.sources.dist, config.sources.css, 'fonts-bsk.css'),
         path.join(config.sources.dist, config.sources.css, 'bootstrap-bsk.css'),
-        path.join(config.sources.dist, config.sources.css, 'styles-bsk.css')
+        path.join(config.sources.dist, config.sources.css, 'styles-bsk.css'),
+        path.join(config.sources.dist, config.sources.css, 'styles-extra.css')
       ]),
       concat('bas-style-kit.css'),
       gulp.dest(path.join(config.destinations.dist, config.destinations.css))
@@ -282,19 +328,19 @@ function concatCss(done) {
   );
 }
 
-function concatJS(done) {
-  pump(
-    [
-      gulp.src([
-        path.join(config.sources.javascripts, config.sources['bas-style-kit-js']),
-        path.join(config.sources.javascripts, config.sources['bootstrap-overrides-js']),
-      ]),
-      concat('bas-style-kit.js'),
-      gulp.dest(path.join(config.destinations.dist, config.destinations.js))
-    ],
-    done
-  );
-}
+// function concatJS(done) {
+//   pump(
+//     [
+//       gulp.src([
+//         path.join(config.sources.javascripts, config.sources['bas-style-kit-js']),
+//         path.join(config.sources.javascripts, config.sources['bootstrap-bsk-js']),
+//       ]),
+//       concat('bas-style-kit.js'),
+//       gulp.dest(path.join(config.destinations.dist, config.destinations.js))
+//     ],
+//     done
+//   );
+// }
 
 function minifyCss(done) {
   pump(
@@ -313,19 +359,19 @@ function minifyCss(done) {
   );
 }
 
-function minifyJs(done) {
-  pump(
-    [
-      gulp.src([
-        path.join(config.sources.dist, config.sources.js, 'bas-style-kit.js')
-      ]),
-      uglify(),
-      rename({suffix: '.min'}),
-      gulp.dest(path.join(config.destinations.dist, config.destinations.js))
-    ],
-    done
-  );
-}
+// function minifyJs(done) {
+//   pump(
+//     [
+//       gulp.src([
+//         path.join(config.sources.dist, config.sources.js, 'bas-style-kit.js')
+//       ]),
+//       uglify(),
+//       rename({suffix: '.min'}),
+//       gulp.dest(path.join(config.destinations.dist, config.destinations.js))
+//     ],
+//     done
+//   );
+// }
 
 function copyFontGillSans(done) {
   pump(
@@ -480,7 +526,7 @@ function lintJs(done) {
   pump(
     [
       gulp.src([
-        path.join(config.sources['bas-style-kit-js'])
+        path.join(config.sources['javascripts'])
       ]),
       eslint(),
       eslint.format(),
@@ -495,6 +541,7 @@ function sriAll(done) {
     [
       gulp.src([
         path.join(config.sources.dist, config.sources.css, 'styles-bsk.css'),
+        path.join(config.sources.dist, config.sources.css, 'styles-extra.css'),
         path.join(config.sources.dist, config.sources.css, 'bootstrap-bsk.css'),
         path.join(config.sources.dist, config.sources.css, 'fonts-bsk.css'),
         path.join(config.sources.dist, config.sources.css, 'bas-style-kit.css'),

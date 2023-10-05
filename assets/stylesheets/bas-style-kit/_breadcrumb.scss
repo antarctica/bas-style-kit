@@ -1,0 +1,18 @@
+//
+// Breadcrumbs
+// --------------------------------------------------
+
+
+.breadcrumb {  
+    > li {
+      display: inline-block;  
+      + li:before {
+        padding: 0 5px;
+        color: #ccc;
+        content: $breadcrumb-divider;
+      }
+    }  
+    > .active {
+      color: $breadcrumb-active-color;
+    }
+  }

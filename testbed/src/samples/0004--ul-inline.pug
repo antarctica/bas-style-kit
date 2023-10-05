@@ -1,6 +1,6 @@
 //-
   sample:
-    title: Inline list
+    title: Inline list - Needs a rewrite - inline list items need a class now
     code: ul.bsk-list-inline
   collections:
     - core--lists
@@ -16,7 +16,7 @@ block sample
     +alert('info', 'highlight')
       | Class is #[strong not] supported with ordered list.
 
-    +ul-ol('ul')(class='bsk-list-inline')
+    +ul-ol--inline('ul')(class='bsk-list-inline')
 
   section.app-sample-section
     header Nested (not applied)
@@ -25,7 +25,7 @@ block sample
         li Class #[strong is] supported with nested unordered lists but will appear flattened.
         li Class is #[strong not] applied to nested lists.
 
-    +ul-ol--nested('ul')(class='bsk-list-inline')
+    +ul-ol--nested-inline('ul')(class='bsk-list-inline')
 
   section.app-sample-section
     header Nested (applied)
@@ -34,4 +34,4 @@ block sample
         li Class is #[strong not] supported with nested lists.
         li Class #[strong applied] to nested lists.
 
-    +ul-ol--nested-class('ul')(class='bsk-list-inline')
+    +ul-ol--nested-class-inline('ul')(class='bsk-list-inline')

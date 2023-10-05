@@ -1,17 +1,7 @@
 //-
   sample:
     title: Default Jumbotron
-    code: .bsk-jumbotron.bsk-jumbotron-default
-  collections:
-    - components--jumbotrons
+    type: removed
   ---
 
 extends ../layouts/app-sample.pug
-include ../mixins/app/samples/jumbotrons.pug
-
-block sample
-  section.app-sample-section
-    header Standard
-
-    +jumbotron(class='bsk-jumbotron-default')
-      | Jumbotron content

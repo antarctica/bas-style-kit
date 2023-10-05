@@ -5,7 +5,7 @@ mixin nav_menu(items)
                 li: a(href=item.href) #{item.title}
             else
                 li.bsk-dropdown
-                    a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
+                    a.bsk-dropdown-toggle(href='#' data-bs-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
                         | #{item.title} #[span.bsk-caret]
                     ul.bsk-dropdown-menu
                         each sub_item in item.items

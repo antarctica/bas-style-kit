@@ -13,24 +13,25 @@ block sample
   section.app-sample-section
     header Standard
 
-    +navbar--default
-      ul.bsk-nav.bsk-navbar-nav.bsk-navbar-right
+    +navbar--default('right')
+      ul.bsk-nav.bsk-navbar-nav
         li: a(href='#') Item
 
   section.app-sample-section
     header With left menu
 
-    +navbar--default
-      ul.bsk-nav.bsk-navbar-nav.bsk-navbar-left
+    +navbar--default('left')
+      ul.bsk-nav.bsk-navbar-nav.bsk-me-auto
         li: a(href='#') Left item
-      ul.bsk-nav.bsk-navbar-nav.bsk-navbar-right
+      ul.bsk-nav.bsk-navbar-nav.bsk-ms-auto
         li: a(href='#') Right item
+
 
   section.app-sample-section
     header With multiple right menus
 
-    +navbar--default
-      ul.bsk-nav.bsk-navbar-nav.bsk-navbar-right
+    +navbar--default('right')
+      ul.bsk-nav.bsk-navbar-nav.bsk-ms-auto
         li: a(href='#') Right menu 1/2
-      ul.bsk-nav.bsk-navbar-nav.bsk-navbar-right
+      ul.bsk-nav.bsk-navbar-nav
         li: a(href='#') Right menu 2/2

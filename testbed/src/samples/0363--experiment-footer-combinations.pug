@@ -23,18 +23,21 @@ block sample
     | End of page content
 
     +footer--default
-      div.bsk-footer-is-something-wrong
-        a(href='#') Is something wrong with this page?
-      div.bsk-footer-back-to-top
-        a(href='#') Back to top
+      div.bsk-d-flex
+        div.bsk-footer-is-something-wrong
+          a(href='#') Is something wrong with this page?
+        div.bsk-footer-back-to-top.bsk-ms-auto
+          a(href='#')
+            i.fa.fa-fw.fa-chevron-up(aria-hidden='true')
+            | Back to top
       div.bsk-footer-spacer
       div.bsk-row
-        div.bsk-col-12-md-4
+        div.bsk-col-md-4
           h4 About BAS
           p The #[a(href='https://www.bas.ac.uk') British Antarctic Survey (BAS)] conducts world-leading
             |
             | interdisciplinary research in the Polar Regions.
-        div.bsk-col-12-md-8.bsk-text-right
+        div.bsk-col-md-8.bsk-text-right
           h4 BAS Activities
           ul.bsk-list-unstyled
             li: a(href='#') Research projects
@@ -42,19 +45,20 @@ block sample
             li: a(href='#') Fieldwork opportunities
             li: a(href='#') Facilities, skills and logistics
       div.bsk-footer-divider(role='separator')
-      div.bsk-footer-governance
-        | The #[a(href='https://www.bas.ac.uk') British Antarctic Survey] (BAS) is part of
-        | #[a(href='https://www.ukri.org') UK Research and Innovation] (UKRI)
-        div.bsk-footer-ogl.app-footer-ogl
-          div.bsk-ogl-symbol.app-ogl-symbol: a(href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/' rel='license')
-            span.bsk-ogl-symbol Open Government Licence
-          | All content is available under the #[a(href='http://www.nationalarchives.gov.uk/doc/open-government-licence' rel='license') Open Government Licence v3.0], except where otherwise stated
-      div.bsk-footer-policy-links
-        ul.bsk-list-inline
-          li: a(href='#') Copyright
-          li: a(href='#') Privacy
-          li: a(href='#') Cookies
-        | © (Year) British Antarctic Survey
+      div.bsk-d-flex
+        div.bsk-footer-governance
+          | The #[a(href='https://www.bas.ac.uk') British Antarctic Survey] (BAS) is part of
+          | #[a(href='https://www.ukri.org') UK Research and Innovation] (UKRI)
+          div.bsk-footer-ogl.app-footer-ogl
+            div.bsk-ogl-symbol.app-ogl-symbol: a(href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/' rel='license')
+              span.bsk-ogl-symbol Open Government Licence
+            | All content is available under the #[a(href='http://www.nationalarchives.gov.uk/doc/open-government-licence' rel='license') Open Government Licence v3.0], except where otherwise stated
+        div.bsk-footer-policy-links.bsk-ms-auto
+          ul.bsk-list-inline
+            li.bsk-list-inline-item: a(href='#') Copyright
+            li.bsk-list-inline-item: a(href='#') Privacy
+            li.bsk-list-inline-item: a(href='#') Cookies
+          | © (Year) British Antarctic Survey
 
   section.app-sample-section
     header Complex content
@@ -62,24 +66,28 @@ block sample
     | No content
 
     +footer--default
-      div.bsk-footer-is-something-wrong
-        a(href='#') Is something wrong with this page?
-      div.bsk-footer-back-to-top
-        a(href='#') Back to top
+      div.bsk-d-flex
+        div.bsk-footer-is-something-wrong
+          a(href='#') Is something wrong with this page?
+        div.bsk-footer-back-to-top.bsk-ms-auto
+          a(href='#')
+            i.fa.fa-fw.fa-chevron-up(aria-hidden='true')
+            | Back to top
       div.bsk-footer-divider(role='separator')
-      div.bsk-footer-governance
-        | The #[a(href='https://www.bas.ac.uk') British Antarctic Survey] (BAS) is part of
-        | #[a(href='https://www.ukri.org') UK Research and Innovation] (UKRI)
-        div.bsk-footer-ogl.app-footer-ogl
-          div.bsk-ogl-symbol.app-ogl-symbol: a(href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/' rel='license')
-            span.bsk-ogl-symbol Open Government Licence
-          | All content is available under the #[a(href='http://www.nationalarchives.gov.uk/doc/open-government-licence' rel='license') Open Government Licence v3.0], except where otherwise stated
-      div.bsk-footer-policy-links
-        ul.bsk-list-inline
-          li: a(href='#') Copyright
-          li: a(href='#') Privacy
-          li: a(href='#') Cookies
-        | © (Year) British Antarctic Survey
+      div.bsk-d-flex
+        div.bsk-footer-governance
+          | The #[a(href='https://www.bas.ac.uk') British Antarctic Survey] (BAS) is part of
+          | #[a(href='https://www.ukri.org') UK Research and Innovation] (UKRI)
+          div.bsk-footer-ogl.app-footer-ogl
+            div.bsk-ogl-symbol.app-ogl-symbol: a(href='https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/' rel='license')
+              span.bsk-ogl-symbol Open Government Licence
+            | All content is available under the #[a(href='http://www.nationalarchives.gov.uk/doc/open-government-licence' rel='license') Open Government Licence v3.0], except where otherwise stated
+        div.bsk-footer-policy-links.bsk-ms-auto
+          ul.bsk-list-inline
+            li.bsk-list-inline-item: a(href='#') Copyright
+            li.bsk-list-inline-item: a(href='#') Privacy
+            li.bsk-list-inline-item: a(href='#') Cookies
+          | © (Year) British Antarctic Survey
 
   hr
 

@@ -13,16 +13,15 @@ include ../mixins/app/samples/pop-overs.pug
 block sample
   section.app-sample-section.app-spacing-bottom-xl
     header Standard (static)
-
+    
     div.bsk-row
-      div.bsk-col-12-md-3
-        +pop-over--static('top')
-      div.bsk-col-12-md-3
-        +pop-over--static('bottom')
-      div.bsk-col-12-md-3
-        +pop-over--static('left')
-      div.bsk-col-12-md-3
-        +pop-over--static('right')
+      +pop-over--static('top') 
+    div.bsk-row     
+      +pop-over--static('bottom')
+    div.bsk-row
+      +pop-over--static('left')
+    div.bsk-row
+      +pop-over--static('right')
 
   +pop-over--standard('top')
   +pop-over--standard('left')

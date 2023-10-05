@@ -12,8 +12,8 @@ include ../mixins/app/samples/drop-downs.pug
 block sample
   section.app-sample-section
     header Standard
-    +dropdown--split-button
+    +dropdown--split-button('yes')
 
   section.app-sample-section
     header Simulated open menu
-    +dropdown--split-button()(class='app-simulated-state-open')
+    +dropdown--split-button('no')(class='app-simulated-state-open app-simulated-state-open-split')

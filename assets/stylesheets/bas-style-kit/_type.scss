@@ -8,18 +8,45 @@
 
 @include text-emphasis-variant('.text-experimental', $brand-experimental);
 
-// Contextual backgrounds
-// For now we'll leave these alongside the text classes until v4 when we can
-// safely shift things around (per SemVer rules).
 
-@include bg-variant('.bg-experimental', $state-experimental-bg);
+// Headings - small
+// -------------------------
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  small,
+  .small {
+    font-weight: 400;
+    line-height: 1;
+    color: $headings-small-color;
+  }
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+  small,
+  .small {
+    font-size: 65%;
+  }
+}
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  small,
+  .small {
+    font-size: 75%;
+  }
+}
 
 
 // Page header
 // -------------------------
 
 .page-header {
-  margin-bottom: ($line-height-computed * 3);
+  padding-bottom: 0.625rem;
+  margin: 2.5rem 0 3.75rem;
+  border-bottom: 1px solid #eee;
 }
 
 .page-header-stacked {
@@ -28,6 +55,46 @@
     font-weight: inherit;
   }
 }
+
+// Emphasis & misc
+// -------------------------
+
+// Alignment
+.text-left           { text-align: left; }
+.text-right          { text-align: right; }
+.text-center         { text-align: center; }
+.text-justify        { text-align: justify; }
+.text-nowrap         { white-space: nowrap; }
+
+
+@include text-emphasis-variant('.text-primary', $brand-primary);
+
+@include text-emphasis-variant('.text-success', $state-success-text);
+
+@include text-emphasis-variant('.text-info', $state-info-text);
+
+@include text-emphasis-variant('.text-warning', $state-warning-text);
+
+@include text-emphasis-variant('.text-danger', $state-danger-text);
+
+
+
+.bg-primary {
+  // Given the contrast here, this is the only class to have its color inverted
+  // automatically.
+  color: #fff;
+}
+@include bg-variant('.bg-primary', $brand-primary);
+
+@include bg-variant('.bg-success', $state-success-bg);
+
+@include bg-variant('.bg-info', $state-info-bg);
+
+@include bg-variant('.bg-warning', $state-warning-bg);
+
+@include bg-variant('.bg-danger', $state-danger-bg);
+
+@include bg-variant('.bg-experimental', $state-experimental-bg);
 
 
 // Lists
@@ -38,6 +105,52 @@
   dt,
   dd {
     padding: $dl-padding;
+  }
+}
+
+.dl-striped {
+  dt {
+    background: $dl-striped-bg;
+  }
+}
+
+// Description Lists
+dl {
+  margin-top: 0; // Remove browser default
+  margin-bottom: $line-height-computed;
+}
+dt,
+dd {
+  line-height: $line-height-base;
+}
+dt {
+  font-weight: 700;
+}
+dd {
+  margin-left: 0; // Undo browser default
+}
+
+// Horizontal description lists
+//
+// Defaults to being stacked without any of the below styles applied, until the
+// grid breakpoint is reached (default of ~768px).
+
+.dl-horizontal {
+  dd {
+    @include clearfix; // Clear the floated `dt` if an empty `dd` is present
+  }
+
+  @media (min-width: $dl-horizontal-breakpoint) {
+    dt {
+      float: left;
+      width: ($dl-horizontal-offset - 20);
+      clear: left;
+      text-align: right;
+      // @include text-overflow;
+    }
+    dd {
+      margin-left: $dl-horizontal-offset;
+    }
   }
 }
 
@@ -53,8 +166,51 @@
   }
 }
 
-.dl-striped {
-  dt {
-    background: $dl-striped-bg;
+// Blockquotes
+blockquote {
+  padding: calc($line-height-computed / 2) $line-height-computed;
+  margin: 0 0 $line-height-computed;
+  font-size: $blockquote-font-size;
+  border-left: 5px solid $blockquote-border-color;
+
+  p,
+  ul,
+  ol {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Note: Deprecated small and .small as of v3.1.0
+  // Context: https://github.com/twbs/bootstrap/issues/11660
+  footer {
+    display: block;
+    font-size: 80%; // back to default font-size
+    line-height: $line-height-base;
+    color: $blockquote-small-color;
+
+    &:before {
+      content: "\2014 \00A0"; // em dash, nbsp
+    }
+  }
+}
+
+// Opposite alignment of blockquote
+//
+.blockquote-reverse {
+  padding-right: 15px;
+  padding-left: 0;
+  text-align: right;
+  border-right: 5px solid $blockquote-border-color;
+  border-left: 0;
+
+  // Account for citation
+  footer,
+  small,
+  .small {
+    &:before { content: ""; }
+    &:after {
+      content: "\00A0 \2014"; // nbsp, em dash
+    }
   }
 }

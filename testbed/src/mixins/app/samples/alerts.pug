@@ -1,7 +1,7 @@
 mixin alert(variant, style, icon, dismissible)
   if dismissible == 'yes'
-    div(class='bsk-alert bsk-alert-' + variant + ' bsk-alert-' + style + ' bsk-alert-dismissible')
-      button.bsk-close(type='button' data-dismiss='alert' aria-label='close') &times;
+    div(id='alert-message-' + icon + '' class='bsk-alert bsk-alert-' + variant + ' bsk-alert-' + style + ' bsk-alert-dismissible' role='alert')
+      button.bsk-close(type='button' data-bs-dismiss='alert' data-bs-target='#alert-message-' + icon + '' aria-label='Close') &times;
       if icon == 'yes'
         if variant == 'success'
           i.bsk-alert-icon.fa-fw.fas.fa-check(aria-hidden='true')
@@ -31,8 +31,8 @@ mixin alert(variant, style, icon, dismissible)
 
 mixin alert--block(variant, style, icon, dismissible)
   if dismissible == 'yes'
-    div(class='bsk-alert bsk-alert-block bsk-alert-' + variant + ' bsk-alert-' + style + ' bsk-alert-dismissible')
-      button.bsk-close(type='button' data-dismiss='alert' aria-label='close') &times;
+    div(id='alert-message-2' class='bsk-alert bsk-alert-block bsk-alert-' + variant + ' bsk-alert-' + style + ' bsk-alert-dismissible')
+      button.bsk-close(type='button' data-bs-dismiss='alert' data-bs-target="#alert-message-2" aria-label='close') &times;
       if icon == 'yes'
         if variant == 'success'
           i.bsk-alert-icon.fa-fw.fas.fa-check(aria-hidden='true')
@@ -165,8 +165,8 @@ mixin alert-block--collection-variant-alert(variant, style, icon, title)
 
 mixin alert-large(variant, style, icon, dismissible)
   if dismissible == 'yes'
-    div(class='bsk-alert bsk-alert-lg bsk-alert-' + variant + ' bsk-alert-' + style + ' bsk-alert-dismissible')
-      button.bsk-close(type='button' data-dismiss='alert' aria-label='close') &times;
+    div(id='alert-message-lg' class='bsk-alert bsk-alert-lg bsk-alert-' + variant + ' bsk-alert-' + style + ' bsk-alert-dismissible')
+      button.bsk-close(type='button' data-bs-dismiss='alert' data-bs-target="#alert-message-lg" aria-label='close') &times;
       if icon == 'yes'
         if variant == 'success'
           i.bsk-alert-icon.fa-fw.fas.fa-check(aria-hidden='true')

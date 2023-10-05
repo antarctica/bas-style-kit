@@ -1,0 +1,7 @@
+.pagination {
+    flex-wrap: wrap;
+    > .disabled > a {
+            cursor: not-allowed;
+            pointer-events: all !important;
+        }    
+}

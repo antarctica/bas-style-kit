@@ -1,262 +1,48 @@
-// Grid system
+// Framework grid generation
 //
-// Generate semantic grid columns with these mixins.
+// Used to generate the correct number of grid classes for each grid system
 
 // 'Standard' bootstrap 12-column grid, but with additional 'xl' and 'fhd' sizes
 
-// Generate the extra large columns
-@mixin make-xl-column(
-  $columns,
-  $gutter: $grid-gutter-width) {
-  position:      relative;
-  min-height:    1px;
-  padding-left:  ($gutter / 2);
-  padding-right: ($gutter / 2);
+@mixin make-12-grid-columns(
+  $i: 1,
+  $list: ".col-12-xs-#{$i}, .col-12-sm-#{$i}, .col-12-md-#{$i}, .col-12-lg-#{$i} .col-12-xl-#{$i} .col-12-fhd-#{$i}") {
+  @for $i from (1 + 1) through $grid-12-columns {
+    $list: "#{$list}, .col-12-xs-#{$i}, .col-12-sm-#{$i}, .col-12-md-#{$i}, .col-12-lg-#{$i}, .col-12-xl-#{$i} .col-12-fhd-#{$i}";
+  }
 
-  @media (min-width: $screen-xl-min) {
+  #{$list} {
+    position:      relative;
+    // Prevent columns from collapsing when empty
+    min-height:    1px;
+    // Inner gutter via padding
+    padding-left:  ceil(calc($grid-gutter-width / 2));
+    padding-right: floor(calc($grid-gutter-width / 2));
+  }
+}
+
+@mixin float-12-grid-columns(
+  $class,
+  $i: 1,
+  $list: ".col-12-#{$class}-#{$i}") {
+  @for $i from (1 + 1) through $grid-12-columns {
+    $list: "#{$list}, .col-12-#{$class}-#{$i}";
+  }
+
+  #{$list} {
     float: left;
-    width: percentage(($columns / $grid-12-columns));
   }
 }
 
-@mixin make-xl-column-offset($columns) {
-  @media (min-width: $screen-xl-min) {
-    margin-left: percentage(($columns / $grid-12-columns));
+@mixin float-grid-columns(
+  $class,
+  $i: 1,
+  $list: ".col-#{$class}-#{$i}") {
+  @for $i from (1 + 1) through $grid-12-columns {
+    $list: "#{$list}, .col-#{$class}-#{$i}";
   }
-}
 
-@mixin make-xl-column-push($columns) {
-  @media (min-width: $screen-xl-min) {
-    left: percentage(($columns / $grid-12-columns));
-  }
-}
-
-@mixin make-xl-column-pull($columns) {
-  @media (min-width: $screen-xl-min) {
-    right: percentage(($columns / $grid-12-columns));
-  }
-}
-
-// Generate the full HD (1080p) columns
-@mixin make-fhd-column(
-  $columns,
-  $gutter: $grid-gutter-width) {
-  position:      relative;
-  min-height:    1px;
-  padding-left:  ($gutter / 2);
-  padding-right: ($gutter / 2);
-
-  @media (min-width: $screen-fhd-min) {
+  #{$list} {
     float: left;
-    width: percentage(($columns / $grid-12-columns));
-  }
-}
-
-@mixin make-fhd-column-offset($columns) {
-  @media (min-width: $screen-fhd-min) {
-    margin-left: percentage(($columns / $grid-12-columns));
-  }
-}
-
-@mixin make-fhd-column-push($columns) {
-  @media (min-width: $screen-fhd-min) {
-    left: percentage(($columns / $grid-12-columns));
-  }
-}
-
-@mixin make-fhd-column-pull($columns) {
-  @media (min-width: $screen-fhd-min) {
-    right: percentage(($columns / $grid-12-columns));
-  }
-}
-
-// 'Custom' Style kit 24-column grid, with all the 'standard' sizes and addititional 'xl' and fhd' sizes
-
-// Generate the extra small columns
-@mixin make-24-xs-column(
-  $columns,
-  $gutter: $grid-gutter-width) {
-  position:      relative;
-  float:         left;
-  width:         percentage(($columns / $grid-24-columns));
-  min-height:    1px;
-  padding-left:  ($gutter / 2);
-  padding-right: ($gutter / 2);
-}
-
-@mixin make-24-xs-column-offset($columns) {
-  margin-left: percentage(($columns / $grid-24-columns));
-}
-
-@mixin make-24-xs-column-push($columns) {
-  left: percentage(($columns / $grid-24-columns));
-}
-
-@mixin make-24-xs-column-pull($columns) {
-  right: percentage(($columns / $grid-24-columns));
-}
-
-// Generate the small columns
-@mixin make-24-sm-column(
-  $columns,
-  $gutter: $grid-gutter-width) {
-  position:      relative;
-  min-height:    1px;
-  padding-left:  ($gutter / 2);
-  padding-right: ($gutter / 2);
-
-  @media (min-width: $screen-sm-min) {
-    float: left;
-    width: percentage(($columns / $grid-24-columns));
-  }
-}
-
-@mixin make-24-sm-column-offset($columns) {
-  @media (min-width: $screen-sm-min) {
-    margin-left: percentage(($columns / $grid-24-columns));
-  }
-}
-
-@mixin make-24-sm-column-push($columns) {
-  @media (min-width: $screen-sm-min) {
-    left: percentage(($columns / $grid-24-columns));
-  }
-}
-
-@mixin make-24-sm-column-pull($columns) {
-  @media (min-width: $screen-sm-min) {
-    right: percentage(($columns / $grid-24-columns));
-  }
-}
-
-// Generate the medium columns
-@mixin make-24-md-column(
-  $columns,
-  $gutter: $grid-gutter-width) {
-  position:      relative;
-  min-height:    1px;
-  padding-left:  ($gutter / 2);
-  padding-right: ($gutter / 2);
-
-  @media (min-width: $screen-md-min) {
-    float: left;
-    width: percentage(($columns / $grid-24-columns));
-  }
-}
-
-@mixin make-24-md-column-offset($columns) {
-  @media (min-width: $screen-md-min) {
-    margin-left: percentage(($columns / $grid-24-columns));
-  }
-}
-
-@mixin make-24-md-column-push($columns) {
-  @media (min-width: $screen-md-min) {
-    left: percentage(($columns / $grid-24-columns));
-  }
-}
-
-@mixin make-24-md-column-pull($columns) {
-  @media (min-width: $screen-md-min) {
-    right: percentage(($columns / $grid-24-columns));
-  }
-}
-
-// Generate the large columns
-@mixin make-24-lg-column(
-  $columns,
-  $gutter: $grid-gutter-width) {
-  position:      relative;
-  min-height:    1px;
-  padding-left:  ($gutter / 2);
-  padding-right: ($gutter / 2);
-
-  @media (min-width: $screen-lg-min) {
-    float: left;
-    width: percentage(($columns / $grid-24-columns));
-  }
-}
-
-@mixin make-24-lg-column-offset($columns) {
-  @media (min-width: $screen-lg-min) {
-    margin-left: percentage(($columns / $grid-24-columns));
-  }
-}
-
-@mixin make-24-lg-column-push($columns) {
-  @media (min-width: $screen-lg-min) {
-    left: percentage(($columns / $grid-24-columns));
-  }
-}
-
-@mixin make-24-lg-column-pull($columns) {
-  @media (min-width: $screen-lg-min) {
-    right: percentage(($columns / $grid-24-columns));
-  }
-}
-
-// Generate the extra large columns
-@mixin make-24-xl-column(
-  $columns,
-  $gutter: $grid-gutter-width) {
-  position:      relative;
-  min-height:    1px;
-  padding-left:  ($gutter / 2);
-  padding-right: ($gutter / 2);
-
-  @media (min-width: $screen-xl-min) {
-    float: left;
-    width: percentage(($columns / $grid-24-columns));
-  }
-}
-
-@mixin make-24-xl-column-offset($columns) {
-  @media (min-width: $screen-xl-min) {
-    margin-left: percentage(($columns / $grid-24-columns));
-  }
-}
-
-@mixin make-24-xl-column-push($columns) {
-  @media (min-width: $screen-xl-min) {
-    left: percentage(($columns / $grid-24-columns));
-  }
-}
-
-@mixin make-24-xl-column-pull($columns) {
-  @media (min-width: $screen-xl-min) {
-    right: percentage(($columns / $grid-24-columns));
-  }
-}
-
-// Generate the full HD (1080p) columns
-@mixin make-fhd-column(
-  $columns,
-  $gutter: $grid-gutter-width) {
-  position:      relative;
-  min-height:    1px;
-  padding-left:  ($gutter / 2);
-  padding-right: ($gutter / 2);
-
-  @media (min-width: $screen-fhd-min) {
-    float: left;
-    width: percentage(($columns / $grid-24-columns));
-  }
-}
-
-@mixin make-fhd-column-offset($columns) {
-  @media (min-width: $screen-fhd-min) {
-    margin-left: percentage(($columns / $grid-24-columns));
-  }
-}
-
-@mixin make-fhd-column-push($columns) {
-  @media (min-width: $screen-fhd-min) {
-    left: percentage(($columns / $grid-24-columns));
-  }
-}
-
-@mixin make-fhd-column-pull($columns) {
-  @media (min-width: $screen-fhd-min) {
-    right: percentage(($columns / $grid-24-columns));
   }
 }

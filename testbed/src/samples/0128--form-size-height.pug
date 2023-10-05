@@ -1,7 +1,7 @@
 //-
   sample:
     title: Form input height
-    code: .bsk-form-group.bsk-form-group-*
+    code: .bsk-form-control .bsk-form-control-*
   collections:
     - core--forms
   ---
@@ -10,6 +10,6 @@ extends ../layouts/app-sample.pug
 include ../mixins/app/samples/forms.pug
 
 block sample
-  +form-size('Small')(class='bsk-form-group bsk-form-group-sm')
-  +form-size('Regular')(class='bsk-form-group')
-  +form-size('Large')(class='bsk-form-group bsk-form-group-lg')
+  +form-size('Small')
+  +form-size('Regular')
+  +form-size('Large')

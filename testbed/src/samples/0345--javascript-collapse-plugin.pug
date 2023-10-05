@@ -7,40 +7,36 @@
 extends ../layouts/app-sample.pug
 
 block sample
-  nav.bsk-navbar
+  nav.bsk-navbar.bsk-navbar-expand-md.bsk-navbar-dark.bsk-bg-dark
     div.bsk-container-fluid
       <!-- Site name and toggle get grouped for better mobile display -->
-      div.bsk-navbar-header
-        button.bsk-navbar-toggle.bsk-collapsed(type='button' data-toggle='collapse' data-target='#bsk-example-navbar-collapse-1' aria-expanded='false')
-          span.bsk-sr-only Toggle navigation
-          span.bsk-icon-bar
-          span.bsk-icon-bar
-          span.bsk-icon-bar
-        a.bsk-navbar-brand(href='#') Site Name
+      a.bsk-navbar-brand(href='#') Site Name
+      button.bsk-navbar-toggler.bsk-collapsed.bsk-ms-auto(type='button' data-bs-toggle='collapse' data-bs-target='#bsk-example-navbar-collapse-1' aria-expanded='false')
+        span.bsk-navbar-toggler-icon
 
       <!-- Collect navigation links, forms, and other items for hiding at smaller screen sizes -->
       div.bsk-collapse.bsk-navbar-collapse#bsk-example-navbar-collapse-1
         ul.bsk-nav.bsk-navbar-nav
-          li.bsk-active: a(href='#') Home #[span.bsk-sr-only (current)]
+          li.bsk-active: a(href='#') Home #[span.bsk-visually-hidden (current)]
           li: a(href='#') About
           li.bsk-dropdown
-            a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
-              | Dropdown #[span.bsk-caret]
-            ul.bsk-dropdown-menu
-              li: a(href='#') Action
-              li: a(href='#') Another action
-              li: a(href='#') Something else here
+            a.bsk-dropdown-toggle.bsk-nav-link(href='#' role='button' id='dropdownMenu1' data-bs-toggle='dropdown' aria-expanded='false')
+              | Dropdown
+            ul.bsk-dropdown-menu(aria-labelledby='dropdownMenu1')
+              li: a.bsk-dropdown-item(href='#') Action
+              li: a.bsk-dropdown-item(href='#') Another action
+              li: a.bsk-dropdown-item(href='#') Something else here
               li.bsk-divider(role='separator')
-              li: a(href='#') Separated link
+              li: a.bsk-dropdown-item(href='#') Separated link
               li.bsk-divider(role='separator')
-              li: a(href='#') One more separated link
+              li: a.bsk-dropdown-item(href='#') One more separated link
 
           ul.bsk-nav.bsk-navbar-nav.bsk-navbar-right
             li.bsk-dropdown
-              a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
-                | Part of British Antarctic Survey #[span.bsk-caret]
-              ul.bsk-dropdown-menu
-                li: a(href='https://www.bas.ac.uk') BAS Home
-                li: a(href='#') Another link
-                li: a(href='https://data.bas.ac.uk') Discover BAS data
+              a.bsk-dropdown-toggle.bsk-nav-link(href='#' role='button' id='dropdownMenu2' data-bs-toggle='dropdown' aria-expanded='false')
+                | Part of British Antarctic Survey
+              ul.bsk-dropdown-menu(aria-labelledby='dropdownMenu2')
+                li: a.bsk-dropdown-item(href='https://www.bas.ac.uk') BAS Home
+                li: a.bsk-dropdown-item(href='#') Another link
+                li: a.bsk-dropdown-item(href='https://data.bas.ac.uk') Discover BAS data
             li: a(href='#') Feedback

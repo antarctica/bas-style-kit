@@ -1,24 +1,7 @@
 //-
   sample:
     title: Form input width - 24 column grid
-    code: .bsk-row .bsk-form-group.bsk-col-24-md-*
-  collections:
-    - core--forms
+    type: removed
   ---
 
 extends ../layouts/app-sample.pug
-include ../mixins/app/samples/forms.pug
-include ../mixins/app/samples/alerts.pug
-
-block append variables
-  - attributes.main_content_classes = [];
-
-block sample
-  div.bsk-container-fluid
-    +alert('warning', 'outline')
-      div.bsk-text-center This sample isn't inside a container and may look strange.
-    +alert('info', 'highlight')
-      | Using the medium size 24 column grid, in a fixed-width container.
-
-  div.bsk-container.app-visible-container.app-spacing-bottom
-    +form-grid--columns(24)

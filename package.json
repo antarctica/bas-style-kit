@@ -1,13 +1,17 @@
 {
   "name": "@antarctica/bas-style-kit",
   "description": "A collection of HTML, CSS, and JS components for developing web projects consistent with the BAS brand.",
-  "version": "0.6.1",
+  "version": "0.7.0-alpha",
   "homepage": "https://style-kit.web.bas.ac.uk",
   "author": "British Antarctic Survey",
   "contributors": [
     {
       "name": "Felix Fennell",
       "email": "felnne@bas.ac.uk"
+    },
+    {
+      "name": "Jason White",
+      "email": "jasite@bas.ac.uk"
     }
   ],
   "repository": {
@@ -19,10 +23,8 @@
   },
   "license": "OGL-UK-3.0",
   "dependencies": {
-    "bootstrap-sass": "3.4.1",
-    "jquery": "^3.6.0",
-    "js-cookie": "^2.2.1",
-    "open-sans-fontface": "^1.4.0"
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.2"
   },
   "devDependencies": {
     "del": "^6.0.0",
@@ -32,22 +34,26 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^5.0.0",
+    "glob": "^10.3.10",
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.1",
+    "gulp-autoprefixer": "^8.0.0",
     "gulp-class-prefix": "^1.0.1",
     "gulp-concat": "^2.6.1",
     "gulp-csscomb": "^3.1.0",
     "gulp-cssnano": "^2.1.3",
     "gulp-eslint": "^6.0.0",
     "gulp-rename": "^2.0.0",
-    "gulp-sass": "^4.1.0",
+    "gulp-sass": "^5.1.0",
     "gulp-sass-variables": "^1.2.0",
     "gulp-sri": "^0.3.1",
     "gulp-stylelint": "^13.0.0",
     "gulp-uglify": "^3.0.2",
-    "gulp-zip": "^5.0.1",
+    "gulp-zip": "^5.1.0",
     "pump": "^3.0.0",
+    "sass": "^1.58.0",
     "stylelint": "^13.4.0",
-    "stylelint-config-standard": "^21.0.0"
-  }
+    "stylelint-config-standard": "^21.0.0",
+    "webpack": "^5.75.0"
+  },
+  "packageManager": "yarn@3.6.3"
 }

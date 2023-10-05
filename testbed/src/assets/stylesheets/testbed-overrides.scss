@@ -7,7 +7,9 @@
 //
 
 // Core bootstrap variables
+@import "../../../../assets/stylesheets/bootstrap/functions";
 @import "../../../../assets/stylesheets/bootstrap/variables";
+
 
 // Core BAS Style Kit variables to override Bootstrap
 // Note: This file **MUST** be loaded after Bootstrap's variables, and before other all other styles
@@ -15,7 +17,7 @@
 
 // Testbed variables to override the Style Kit
 // Note: This file **MUST** be loaded after the Style Kit's variables, and before other all other styles
-@import "testbed/_variables";
+@import "testbed/variables";
 
 // Components
 @import "testbed/footer";

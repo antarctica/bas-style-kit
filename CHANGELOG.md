@@ -5,6 +5,13 @@ This project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html
 
 ## [Unreleased][unreleased]
 
+## [0.7.0-alpha] - 2023-10-05
+
+### Changed
+
+* Breaking changes introduced by moving from Bootstrap 3 to Bootstrap 5
+* See MIGRATION-NOTES.md
+
 ## [0.6.1] - 2021-03-16
 
 ### Fixed

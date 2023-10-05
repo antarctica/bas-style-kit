@@ -1,0 +1,26 @@
+//-
+  sample:
+    title: Secondary button
+    code: .bsk-btn.bsk-btn-secondary
+  collections:
+    - core--buttons
+  ---
+
+extends ../layouts/app-sample.pug
+include ../mixins/app/samples/buttons.pug
+
+block sample
+  section.app-sample-section
+    header: code button
+
+    +button--button('secondary')(class='bsk-btn bsk-btn-secondary')
+
+  section.app-sample-section
+    header: code input
+
+    +button--input('secondary')(class='bsk-btn bsk-btn-secondary')
+
+  section.app-sample-section
+    header Link #[code a]
+
+    +button--a('secondary')(class='bsk-btn bsk-btn-secondary')

@@ -73,6 +73,8 @@ Visit [localhost:9000](http://localhost:9000) to access a local version of the T
 
 **Note:** On first run you will need to run these commands to generate Style Kit assets and the Testbed locally:
 
+These are Gulp commands - see `gulpfile.js`
+
 ```
 $ docker-compose run app build
 $ docker-compose run app copy

@@ -1,7 +1,7 @@
 //-
   sample:
     title: Drop down menu - active item
-    code: .bsk-dropdown .bsk-dropdown-menu .bsk-active
+    code: .bsk-dropdown .bsk-dropdown-menu li a .bsk-dropdown-item .bsk-active
   collections:
     - components--drop-downs
   ---
@@ -13,4 +13,5 @@ block sample
   section.app-sample-section
     header Standard
     +dropdown--component
-      li.bsk-active: a(href='#') Active action
+      li
+        a.bsk-dropdown-item.bsk-active(href='#' aria-current='true') Active action

@@ -1,0 +1,15 @@
+// Convert from px values to rem values
+//$html-font-size: 16px;
+@function stripUnit($value) {
+    @return $value / ($value * 0 + 1);
+}
+
+@function toRem($pxValue) {
+    $html-font-size: 16px;
+    @return #{stripUnit($pxValue) / stripUnit($html-font-size)}rem;
+}
+
+@function toRemVal($pxValue) {
+    $html-font-size: 16px;
+    @return #{stripUnit($pxValue) / stripUnit($html-font-size)};
+}

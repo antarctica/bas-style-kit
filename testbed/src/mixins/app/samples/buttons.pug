@@ -16,12 +16,12 @@ mixin button--a(variant)
   a(class!=attributes.class href='#' role='button') #{ variant } button
 
 mixin button--active()
-  each variant in ['default', 'primary', 'success', 'warning', 'danger', 'info']
-    p: button(class='bsk-btn bsk-btn-' + variant + ' bsk-active') default (active)
+  each variant in ['primary', 'secondary', 'success', 'warning', 'danger', 'info']
+    p: button(class='bsk-btn bsk-btn-' + variant + ' bsk-active') #{ variant } (active)
 
 mixin button--disabled()
-  each variant in ['default', 'primary', 'success', 'warning', 'danger', 'info']
-    p: button(class='bsk-btn bsk-btn-' + variant disabled) default (disabled)
+  each variant in ['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']
+    p: button(class='bsk-btn bsk-btn-' + variant disabled) #{ variant } (disabled)
 
 mixin button--size(size)
   p: button(class!=attributes.class) #{ size } button
@@ -34,9 +34,9 @@ mixin button--ms-account-size(size)
 
 mixin button-group--size(size)
   div.bsk-btn-group.app-spacing-bottom(class!=attributes.class role='group')
-    +button(class='bsk-btn bsk-btn-default')
+    +button(class='bsk-btn bsk-btn-primary')
       | #{ size } one
-    +button(class='bsk-btn bsk-btn-default')
+    +button(class='bsk-btn bsk-btn-primary')
       | #{ size } two
-    +button(class='bsk-btn bsk-btn-default')
+    +button(class='bsk-btn bsk-btn-primary')
       | #{ size } three

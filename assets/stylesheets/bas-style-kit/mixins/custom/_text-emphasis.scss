@@ -1,0 +1,19 @@
+//
+// Typography
+// --------------------------------------------------
+//
+// These styles create a layout for use with the HTML5 Sortable JS component inkeeping with the BAS Style Kit.
+//
+// Note: No equivalent of this component exists within Bootstrap, these styles are only found in the BAS Style Kit.
+
+
+// [converter] $parent hack
+@mixin text-emphasis-variant($parent, $color) {
+  #{$parent} {
+    color: $color !important;
+  }
+  a#{$parent}:hover,
+  a#{$parent}:focus {
+    color: darken($color, 10%);
+  }
+}

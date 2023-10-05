@@ -7,7 +7,11 @@
 //
 
 // Bootstrap variables
+@import "../../../../assets/stylesheets/bootstrap/functions";
 @import "../../../../assets/stylesheets/bootstrap/variables";
+@import "../../../../assets/stylesheets/bootstrap/maps";
+@import "../../../../assets/stylesheets/bootstrap/mixins";
+@import "../../../../assets/stylesheets/bootstrap/utilities";
 
 // BAS Style Kit variables to override Bootstrap
 // Note: This file **MUST** be loaded after Bootstrap's variables, and before other all other styles
@@ -19,7 +23,7 @@
 
 
 // Core CSS
-@import "testbed/scaffolding";
+// @import "testbed/scaffolding";
 @import "testbed/grid";
 @import "testbed/layout";
 @import "testbed/colours";

@@ -7,13 +7,13 @@ mixin colour--swatch-range(colour_title, colour_variable, colour_lighter_value, 
   section.app-sample-section
     header #{ colour_title }
     div.bsk-row
-      div.bsk-col-12-md-2
+      div.bsk-col-md-2
         +colour--swatch(colour_title + ' lighter', '$bsk-colour-std-' + colour_variable + '-lighter', colour_lighter_value)(class='app-colour-bsk-colour-std-' + colour_variable + '-lighter')
-      div.bsk-col-12-md-2
+      div.bsk-col-md-2
         +colour--swatch(colour_title + ' light', '$bsk-colour-std-' + colour_variable + '-light', colour_light_value)(class='app-colour-bsk-colour-std-' + colour_variable + '-light')
-      div.bsk-col-12-md-2
+      div.bsk-col-md-2
         +colour--swatch(colour_title + ' base', '$bsk-colour-std-' + colour_variable + '-base', colour_base_value)(class='app-colour-bsk-colour-std-' + colour_variable + '-base')
-      div.bsk-col-12-md-2
+      div.bsk-col-md-2
         +colour--swatch(colour_title + ' dark', '$bsk-colour-std-' + colour_variable + '-dark', colour_dark_value)(class='app-colour-bsk-colour-std-' + colour_variable + '-dark')
-      div.bsk-col-12-md-2
+      div.bsk-col-md-2
         +colour--swatch(colour_title + ' darker', '$bsk-colour-std-' + colour_variable + '-darker', colour_darker_value)(class='app-colour-bsk-colour-std-' + colour_variable + '-darker')

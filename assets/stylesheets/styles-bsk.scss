@@ -1,51 +1,85 @@
 /* BAS Style Kit */
 
 // Import unaltered Bootstrap variables and mixins as needed
+@import "bootstrap/functions";
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
 
-// Core variables and mixins
+// scss-docs-start import-stack
+// Configuration
+@import "bas-style-kit/functions";
+
+// @import "bas-style-kit/maps";
+
 @import "bas-style-kit/variables";
 @import "bas-style-kit/mixins";
 
-// Bootstrap overrides
-// This is considered a bug: https://trello.com/c/YRhYrux6/128-remove-the-need-for-bootstrap-overrides
-@import "bootstrap-overrides/responsive-utilities";
+// @import "bas-style-kit/utilities";
 
-// Core CSS
-@import "bas-style-kit/scaffolding";
+// Layout & components
+
+// @import "bas-style-kit/root";
+
+@import "bas-style-kit/reboot";
+
 @import "bas-style-kit/type";
+@import "bas-style-kit/images";
+
+// @import "bas-style-kit/containers";
+
 @import "bas-style-kit/grid";
+@import "bas-style-kit/tables";
 @import "bas-style-kit/forms";
 @import "bas-style-kit/buttons";
 
-// Utility classes
-@import "bas-style-kit/responsive-utilities";
+// @import "bas-style-kit/transitions";
 
-// Components
-@import "bas-style-kit/alerts";
-@import "bas-style-kit/dropdowns";
-@import "bas-style-kit/button-groups";
-@import "bas-style-kit/navs";
-@import "bas-style-kit/navbars";
-@import "bas-style-kit/labels";
-@import "bas-style-kit/jumbotron";
-@import "bas-style-kit/thumbnails";
+@import "bas-style-kit/dropdown";
+@import "bas-style-kit/button-group";
+@import "bas-style-kit/nav";
+@import "bas-style-kit/navbar";
+@import "bas-style-kit/card";
+
+// @import "bas-style-kit/accordion";
+
+@import "bas-style-kit/breadcrumb";
+@import "bas-style-kit/pagination";
+@import "bas-style-kit/badge";
+@import "bas-style-kit/alert";
+@import "bas-style-kit/progress";
+
+// @import "bas-style-kit/list-group";
+
 @import "bas-style-kit/close";
 
-// Components (custom)
-@import "bas-style-kit/header";
-@import "bas-style-kit/footer";
-@import "bas-style-kit/sidebar";
-@import "bas-style-kit/sortable";
-@import "bas-style-kit/drop-zone";
-@import "bas-style-kit/image-copyright";
-@import "bas-style-kit/social-media";
-@import "bas-style-kit/identifiers";
+// @import "bas-style-kit/toasts";
 
-// Components (interactive)
-@import "bas-style-kit/modals";
-@import "bas-style-kit/popovers";
+@import "bas-style-kit/modal";
+
+@import "bas-style-kit/tooltip";
+@import "bas-style-kit/popover";
+
+// @import "bas-style-kit/carousel";
+// @import "bas-style-kit/spinners";
+// @import "bas-style-kit/offcanvas";
+// @import "bas-style-kit/placeholders";
 
 // Patterns
 @import "bas-style-kit/patterns";
+
+// Components (custom)
+@import "bas-style-kit/custom/code";
+@import "bas-style-kit/custom/drop-zone";
+@import "bas-style-kit/custom/footer";
+@import "bas-style-kit/custom/header";
+@import "bas-style-kit/custom/identifiers";
+@import "bas-style-kit/custom/image-copyright";
+@import "bas-style-kit/custom/jumbotron";
+@import "bas-style-kit/custom/labels";
+@import "bas-style-kit/custom/pager";
+@import "bas-style-kit/custom/media";
+@import "bas-style-kit/custom/responsive-embed";
+@import "bas-style-kit/custom/sidebar";
+@import "bas-style-kit/custom/social-media";
+@import "bas-style-kit/custom/sortable";
+@import "bas-style-kit/custom/thumbnails";

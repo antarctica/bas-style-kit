@@ -1,21 +1,7 @@
 //-
   sample:
     title: Jumbotron sizes
-    code: .bsk-jumbotron.bsk-jumbotron-*
-  collections:
-    - components--jumbotrons
+    type: removed
   ---
 
 extends ../layouts/app-sample.pug
-include ../mixins/app/samples/jumbotrons.pug
-
-block sample
-  section.app-sample-section
-    +jumbotron(class='bsk-jumbotron-default app-spacing-bottom')
-      | Regular jumbotron
-
-    +jumbotron(class='bsk-jumbotron-default bsk-jumbotron-lg app-spacing-bottom')
-      | Large jumbotron
-
-    +jumbotron(class='bsk-jumbotron-default bsk-jumbotron-xl app-spacing-bottom')
-      | Extra large jumbotron

@@ -4,12 +4,31 @@ mixin ul-ol(element)
     li Jelly
     li Oat cakes
 
+mixin ul-ol--inline(element)
+  #{ element }(class!=attributes.class)
+    li.bsk-list-inline-item Popcorn
+    li.bsk-list-inline-item Jelly
+    li.bsk-list-inline-item Oat cakes
+
 mixin ul-ol--nested(element)
   #{ element }(class!=attributes.class)
     li Popcorn
     li Jelly
     li Oat cakes
     li Sesame snaps
+      #{ element }
+        li Chocolate cake
+        li
+          #{ element }
+            li Sherbet
+            li Toffee apples
+
+mixin ul-ol--nested-inline(element)
+  #{ element }(class!=attributes.class)
+    li.bsk-list-inline-item Popcorn
+    li.bsk-list-inline-item Jelly
+    li.bsk-list-inline-item Oat cakes
+    li.bsk-list-inline-item Sesame snaps
       #{ element }
         li Chocolate cake
         li
@@ -29,6 +48,19 @@ mixin ul-ol--nested-class(element)
           #{ element }(class!=attributes.class)
             li Sherbet
             li Toffee apples
+
+mixin ul-ol--nested-class-inline(element)
+  #{ element }(class!=attributes.class)
+    li.bsk-list-inline-item Popcorn
+    li.bsk-list-inline-item Jelly
+    li.bsk-list-inline-item Oat cakes
+    li.bsk-list-inline-item Sesame snaps
+      #{ element }(class!=attributes.class)
+        li.bsk-list-inline-item Chocolate cake
+        li.bsk-list-inline-item
+          #{ element }(class!=attributes.class)
+            li.bsk-list-inline-item Sherbet
+            li.bsk-list-inline-item Toffee apples
 
 mixin ul-ol--nested--mixed(element1, element2)
   #{ element1 }

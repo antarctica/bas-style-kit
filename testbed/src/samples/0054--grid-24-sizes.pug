@@ -1,38 +1,7 @@
 //-
   sample:
     title: 24 column grid sizes
-    code: .bsk-col-24-*-*
-  collections:
-    - core--grid
+    type: removed
   ---
 
 extends ../layouts/app-sample.pug
-include ../mixins/app/samples/alerts.pug
-include ../mixins/app/samples/grid.pug
-
-block append variables
-  - attributes.main_content_classes = [];
-
-block sample
-  div.bsk-container-fluid
-    +alert('warning', 'outline')
-      div.bsk-text-center This sample isn't inside a container and may look strange.
-    +alert('info', 'highlight')
-      | 6 columns at multiple grid sizes:
-      ul
-        li @ #[code xs] each item is #[em 24] columns wide
-        li @ #[code sm] each item is #[em 12] columns wide
-        li @ #[code md] each item is #[em 6] columns wide
-        li @ #[code lg] each item is #[em 4] columns wide
-        li @ #[code xl] each item is #[em 3] columns wide
-        li @ #[code fhd] each item is #[em 1] column wide
-
-  section.app-sample-section
-    div.bsk-container.app-visible-container.app-spacing-bottom
-      div.bsk-row
-        div.bsk-col-24-fhd-1.bsk-col-24-xl-3.bsk-col-24-lg-4.bsk-col-24-md-6.bsk-col-24-sm-12.bsk-col-24-xs-24.app-visible-col-1
-        div.bsk-col-24-fhd-1.bsk-col-24-xl-3.bsk-col-24-lg-4.bsk-col-24-md-6.bsk-col-24-sm-12.bsk-col-24-xs-24.app-visible-col-2
-        div.bsk-col-24-fhd-1.bsk-col-24-xl-3.bsk-col-24-lg-4.bsk-col-24-md-6.bsk-col-24-sm-12.bsk-col-24-xs-24.app-visible-col-3
-        div.bsk-col-24-fhd-1.bsk-col-24-xl-3.bsk-col-24-lg-4.bsk-col-24-md-6.bsk-col-24-sm-12.bsk-col-24-xs-24.app-visible-col-4
-        div.bsk-col-24-fhd-1.bsk-col-24-xl-3.bsk-col-24-lg-4.bsk-col-24-md-6.bsk-col-24-sm-12.bsk-col-24-xs-24.app-visible-col-5
-        div.bsk-col-24-fhd-1.bsk-col-24-xl-3.bsk-col-24-lg-4.bsk-col-24-md-6.bsk-col-24-sm-12.bsk-col-24-xs-24.app-visible-col-6
