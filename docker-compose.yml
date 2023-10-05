@@ -1,22 +1,29 @@
 ---
-version: '2'
+version: '3'
 
 services:
   app:
     build: .
     image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/app:latest-alpine
     command: ['watch']
+    # tty: true
     volumes:
+      # - ./node_modules:/usr/src/app/node_modules
+      # - ./package.json:/usr/src/app/package.json      
       - ./assets:/usr/src/app/assets
       - ./dist:/usr/src/app/dist
       - ./gulpfile.js:/usr/src/app/gulpfile.js
+      - ./webpack.config.js:/usr/src/app/webpack.config.js
+      - ./webpack.config.minify.js:/usr/src/app/webpack.config.minify.js
       - ./LICENSE.md:/usr/src/app/LICENSE.md
 
   testbed:
     build: ./testbed
     image: docker-registry.data.bas.ac.uk/web-apps/bsk/bas-style-kit/testbed:latest-alpine
     command: ['watch']
+    # tty: true
     volumes:
+      # - ./testbed/package.json:/usr/src/app/testbed/package.json
       - ./package.json:/usr/src/app/package.json
       - ./assets:/usr/src/app/assets
       - ./testbed/lib:/usr/src/app/testbed/lib
@@ -25,13 +32,16 @@ services:
       - ./testbed/gulpfile.js:/usr/src/app/testbed/gulpfile.js
     environment:
       - TESTBED_VERSION=develop
-
-  web:
-    image: nginx:alpine
-    volumes:
-      - ./testbed/nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - ./testbed/nginx/index.html:/usr/share/nginx/html/public/index.html
-      - ./testbed/public:/usr/share/nginx/html/public/develop
-      - ./dist:/usr/share/nginx/html/public/develop/dist
+    
+  webserver:
+    image: pierrezemb/gostatic:latest
     ports:
-      - "9000:9000"
+      - 8043:8043
+    volumes:
+      - ./testbed/index.html:/srv/http/index.html
+      - ./testbed/public:/srv/http/develop
+      - ./dist:/srv/http/develop/dist
+
+
+
+

@@ -115,16 +115,16 @@ mixin form-input-radio-checkbox--form-group(input_type, type_class)
     form
       fieldset.bsk-form-group
         div(class=type_class)
-          label.bsk-control-label
-            input(type=input_type name='example-1' id='example-1-a' value='A')
+          input.bsk-form-check-input(type=input_type name='example-1' id='example-1-a' value='A')
+          label.bsk-form-check-label(for='example-1-a')
             | Option 1 (A)
         div(class=type_class)
-          label.bsk-control-label
-            input(type=input_type name='example-1' id='example-1-b' value='B')
+          input.bsk-form-check-input(type=input_type name='example-1' id='example-1-b' value='B')
+          label.bsk-form-check-label(for='example-1-b')
             | Option 1 (B)
         div(class=type_class)
-          label.bsk-control-label
-            input(type=input_type name='example-1' id='example-1-c' value='C')
+          input.bsk-form-check-input(type=input_type name='example-1' id='example-1-c' value='C')
+          label.bsk-form-check-label(for='example-1-c')          
             | Option 1 (C)
 
 mixin form-input-radio-checkbox--form-group-value(input_type, type_class)
@@ -134,16 +134,16 @@ mixin form-input-radio-checkbox--form-group-value(input_type, type_class)
     form
       fieldset.bsk-form-group
         div(class=type_class)
-          label.bsk-control-label
-            input(type=input_type name='example-2' id='example-2-a' value='A')
+          input.bsk-form-check-input(type=input_type name='example-2' id='example-2-a' value='A')
+          label.bsk-control-label(for='example-2-a')
             | Option 2 (A)
         div(class=type_class)
-          label.bsk-control-label
-            input(type=input_type name='example-2' id='example-2-b' value='B' checked)
+          input.bsk-form-check-input(type=input_type name='example-2' id='example-2-b' value='B' checked)     
+          label.bsk-control-label(for='example-2-b')
             | Option 2 (B)
         div(class=type_class)
-          label.bsk-control-label
-            input(type=input_type name='example-2' id='example-2-c' value='C')
+          input.bsk-form-check-input(type=input_type name='example-2' id='example-2-c' value='C')          
+          label.bsk-control-label(for='example-2-c')
             | Option 2 (C)
 
 mixin form-input-radio-checkbox--form-group-attribute(input_type, type_class, attribute, input_attributes, count)
@@ -153,16 +153,16 @@ mixin form-input-radio-checkbox--form-group-attribute(input_type, type_class, at
     form
       fieldset.bsk-form-group
         div(class=type_class)
-          label.bsk-control-label
-            input(type=input_type name='example-#{ count }' id='example-#{ count }-a' value='A')&attributes(input_attributes)
+          input.bsk-form-check-input(type=input_type name='example-#{ count }' id='example-#{ count }-a' value='A')&attributes(input_attributes)
+          label.bsk-control-label(for='example-#{ count }-a')
             | Option #{ count } (A)
         div(class=type_class)
-          label.bsk-control-label
-            input(type=input_type name='example-#{ count }' id='example-#{ count }-b' value='B')&attributes(input_attributes)
+          input.bsk-form-check-input(type=input_type name='example-#{ count }' id='example-#{ count }-b' value='B')&attributes(input_attributes)
+          label.bsk-control-label(for='example-#{ count }-b')
             | Option #{ count } (B)
         div(class=type_class)
-          label.bsk-control-label
-            input(type=input_type name='example-#{ count }' id='example-#{ count }-c' value='C')&attributes(input_attributes)
+          input.bsk-form-check-input(type=input_type name='example-#{ count }' id='example-#{ count }-c' value='C')&attributes(input_attributes)
+          label.bsk-control-label(for='example-#{ count }-c')
             | Option #{ count } (C)
 
 mixin form-input-radio-checkbox--form-group-state-focus(input_type, type_class)
@@ -172,16 +172,16 @@ mixin form-input-radio-checkbox--form-group-state-focus(input_type, type_class)
     form
       fieldset.bsk-form-group.app-simulated-state-focus
         div(class=type_class)
-          label.bsk-control-label
-            input(type=input_type name='example-6' id='example-6-a' value='A')
+          input.bsk-form-check-input(type=input_type name='example-6' id='example-6-a' value='A')
+          label.bsk-control-label(for='example-6-a')
             | Option 6 (A)
         div(class=type_class)
-          label.bsk-control-label
-            input(type=input_type name='example62' id='example62-b' value='B')
+          input.bsk-form-check-input(type=input_type name='example-6' id='example-6-b' value='B')
+          label.bsk-control-label(for='example-6-b')
             | Option 6 (B)
         div(class=type_class)
-          label.bsk-control-label
-            input(type=input_type name='example-6' id='example-6-c' value='C')
+          input.bsk-form-check-input(type=input_type name='example-6' id='example-6-c' value='C')
+          label.bsk-control-label(for='example-6-c')
             | Option 6 (C)
 
 mixin form-input-radio-checkbox--form-group-validation-state(input_type, type_class, validation_state, count)
@@ -191,16 +191,16 @@ mixin form-input-radio-checkbox--form-group-validation-state(input_type, type_cl
     form
       fieldset.bsk-form-group(class='bsk-has-' + validation_state)
         div(class=type_class)
-          label.bsk-control-label
-            input(type=input_type name='example-#{ count }' id='example-#{ count }-a' value='A')
+          input.bsk-form-check-input(type=input_type name='example-#{ count }' id='example-#{ count }-a' value='A')
+          label.bsk-control-label(for='example-#{ count }-a')
             | Option #{ count } (A)
         div(class=type_class)
-          label.bsk-control-label
-            input(type=input_type name='example-#{ count }' id='example-#{ count }-b' value='B')
+          input.bsk-form-check-input(type=input_type name='example-#{ count }' id='example-#{ count }-b' value='B')
+          label.bsk-control-label(for='example-#{ count }-b')
             | Option #{ count } (B)
         div(class=type_class)
-          label.bsk-control-label
-            input(type=input_type name='example-#{ count }' id='example-#{ count }-c' value='C')
+          input.bsk-form-check-input(type=input_type name='example-#{ count }' id='example-#{ count }-c' value='C')
+          label.bsk-control-label(for='example-#{ count }-c')
             | Option #{ count } (C)
 
 mixin form-input-inline--collection()
@@ -238,23 +238,26 @@ mixin form-grid--columns(number_of_columns)
   form
     each grid_col in [...Array(number_of_columns - 1).keys()]
       div.app-spacing-top
-        p.bsk-text-info: code bsk-col-#{ number_of_columns }-md-#{ grid_col + 1 }
+        p.bsk-text-info: code bsk-col-md-#{ grid_col + 1 }
         fieldset.bsk-row
-          div.bsk-form-group(class='bsk-col-' + number_of_columns + '-md-' + (grid_col + 1))
+          div.bsk-form-group(class='bsk-col-md-' + (grid_col + 1))
             label.bsk-control-label Text input
             input.bsk-form-control(type='text')
     div.app-spacing-top
-      p.bsk-text-info: code bsk-col-#{ number_of_columns }-md-#{ number_of_columns }
+      p.bsk-text-info: code bsk-col-md-#{ number_of_columns }
       fieldset.bsk-row
-        div.bsk-form-group(class='bsk-col-' + number_of_columns + '-md-' + number_of_columns)
+        div.bsk-form-group(class='bsk-col-md-' + number_of_columns)
           label.bsk-control-label Text input
           input.bsk-form-control(type='text')
 
 mixin form-size(size)
-  form
-    fieldset(class!=attributes.class)
-      label.bsk-control-label #{ size } text input
-      input.bsk-form-control(type='text')
+  label.bsk-form-label #{ size } text input
+  if size == 'Small'
+    input.bsk-form-control.bsk-form-control-sm(type='text')
+  else if size == 'Large'
+    input.bsk-form-control.bsk-form-control-lg(type='text')
+  else
+    input.bsk-form-control(type='text')
 
 mixin form-input-group()
   form
@@ -265,9 +268,21 @@ mixin form-input-group()
 
 mixin form-input-group--size(size)
   form
-    fieldset.bsk-form-group(class!=attributes.class)
+    fieldset.bsk-form-group
       label.bsk-control-label #{size} form group
-      div.bsk-input-group
-        span.bsk-input-group-addon £
-        input.bsk-form-control(type='number' placeholder='Amount (£, thousands)')
-        span.bsk-input-group-addon 000
+      if size == 'Small'
+        div.bsk-input-group.bsk-input-group-sm
+          span.bsk-input-group-addon £
+          input.bsk-form-control(type='number' placeholder='Amount (£, thousands)')
+          span.bsk-input-group-addon 000
+      else if size == 'Large'
+        div.bsk-input-group.bsk-input-group-lg
+          span.bsk-input-group-addon £
+          input.bsk-form-control.bsk-form-control(type='number' placeholder='Amount (£, thousands)')
+          span.bsk-input-group-addon 000
+      else
+        div.bsk-input-group.bsk-input-group
+          span.bsk-input-group-addon £
+          input.bsk-form-control(type='number' placeholder='Amount (£, thousands)')
+          span.bsk-input-group-addon 000
+

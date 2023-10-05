@@ -1,7 +1,7 @@
 //-
   sample:
     title: Visibility breakpoints - hidden
-    code: .bsk-hidden-*
+    code: .bsk-d-*-none
   collections:
     - core--layout
   ---
@@ -19,70 +19,70 @@ block sample
     table.bsk-table.bsk-table-responsive
       thead
         tr
-          th <!-- Intentionally blank -->
-          th
-            span.bsk-hidden-xs.bsk-text-muted
+          th(scope='col') <!-- Intentionally blank -->
+          th(scope='col')
+            span.bsk-d-none.bsk-d-sm-block.bsk-text-muted
               i.far.fa-square(aria-hidden="true")
               |
               | Extra Small
-            span.bsk-hidden-sm.bsk-hidden-md.bsk-hidden-lg.bsk-hidden-xl.bsk-hidden-fhd.bsk-visible-xs-inline
+            span.bsk-d-block.bsk-d-sm-none
               i.far.fa-check-square(aria-hidden="true")
-              span.bsk-sr-only Active breakpoint
+              span.bsk-visually-hidden Active breakpoint
               |
               | Extra Small
-          th
-            span.bsk-hidden-sm.bsk-text-muted
+          th(scope='col')
+            span.bsk-d-sm-none.bsk-d-md-block.bsk-text-muted
               i.far.fa-square(aria-hidden="true")
               |
               | Small
-            span.bsk-hidden-xs.bsk-hidden-md.bsk-hidden-lg.bsk-hidden-xl.bsk-hidden-fhd.bsk-visible-sm-inline
+            span.bsk-d-none.bsk-d-sm-block.bsk-d-md-none
               i.far.fa-check-square(aria-hidden="true")
-              span.bsk-sr-only Active breakpoint
+              span.bsk-visually-hidden Active breakpoint
               |
               | Small
-          th
-            span.bsk-hidden-md.bsk-text-muted
+          th(scope='col')
+            span.bsk-d-md-none.bsk-d-lg-block.bsk-text-muted
               i.far.fa-square(aria-hidden="true")
               |
               | Medium
-            span.bsk-hidden-xs.bsk-hidden-sm.bsk-hidden-lg.bsk-hidden-xl.bsk-hidden-fhd.bsk-visible-md-inline
+            span.bsk-d-none.bsk-d-md-block.bsk-d-lg-none
               i.far.fa-check-square(aria-hidden="true")
-              span.bsk-sr-only Active breakpoint
+              span.bsk-visually-hidden Active breakpoint
               |
               | Medium
-          th
-            span.bsk-hidden-lg.bsk-text-muted
+          th(scope='col')
+            span.bsk-d-lg-none.bsk-d-xl-block.bsk-text-muted
               i.far.fa-square(aria-hidden="true")
               |
               | Large
-            span.bsk-hidden-xs.bsk-hidden-sm.bsk-hidden-md.bsk-hidden-xl.bsk-hidden-fhd.bsk-visible-lg-inline
+            span.bsk-d-none.bsk-d-lg-block.bsk-d-xl-none
               i.far.fa-check-square(aria-hidden="true")
-              span.bsk-sr-only Active breakpoint
+              span.bsk-visually-hidden Active breakpoint
               |
               | Large
-          th
-            span.bsk-hidden-xl.bsk-text-muted
+          th(scope='col')
+            span.bsk-d-xl-none.bsk-d-fhd-block.bsk-text-muted
               i.far.fa-square(aria-hidden="true")
               |
               | Extra Large
-            span.bsk-hidden-xs.bsk-hidden-sm.bsk-hidden-md.bsk-hidden-lg.bsk-hidden-fhd.bsk-visible-xl-inline
+            span.bsk-d-none.bsk-d-xl-block.bsk-d-fhd-none
               i.far.fa-check-square(aria-hidden="true")
-              span.bsk-sr-only Active breakpoint
+              span.bsk-visually-hidden Active breakpoint
               |
               | Extra Large
-          th
-            span.bsk-hidden-fhd.bsk-text-muted
+          th(scope='col')
+            span.bsk-d-fhd-none.bsk-text-muted
               i.far.fa-square(aria-hidden="true")
               |
               | Full HD
-            span.bsk-hidden-xs.bsk-hidden-sm.bsk-hidden-md.bsk-hidden-lg.bsk-hidden-xl.bsk-visible-fhd-inline
+            span.bsk-d-none.bsk-d-fhd-block
               i.far.fa-check-square(aria-hidden="true")
-              span.bsk-sr-only Active breakpoint
+              span.bsk-visually-hidden Active breakpoint
               |
               | Full HD
       tbody
         tr
-          td: code bsk-hidden-xs
+          td: code bsk-d-none bsk-d-sm-none
           td: span.bsk-text-success #[i.far.fa-low-vision(aria-hidden='true')] Hidden
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
@@ -90,7 +90,7 @@ block sample
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
         tr
-          td: code bsk-hidden-sm
+          td: code bsk-d-none bsk-d-sm-block bsk-d-md-none
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
           td: span.bsk-text-success #[i.far.fa-low-vision(aria-hidden='true')] Hidden
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
@@ -98,7 +98,7 @@ block sample
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
         tr
-          td: code bsk-hidden-md
+          td: code bsk-d-none bsk-d-md-none bsk-d-lg-block
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
           td: span.bsk-text-success #[i.far.fa-low-vision(aria-hidden='true')] Hidden
@@ -106,7 +106,7 @@ block sample
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
         tr
-          td: code bsk-hidden-lg
+          td: code bsk-d-none bsk-d-lg-block bsk-d-xl-none
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
@@ -114,7 +114,7 @@ block sample
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
         tr
-          td: code bsk-hidden-xl
+          td: code bsk-d-none bsk-d-xl-block bsk-d-fhd-none
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
@@ -122,7 +122,7 @@ block sample
           td: span.bsk-text-success #[i.far.fa-low-vision(aria-hidden='true')] Hidden
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
         tr
-          td: code bsk-hidden-fhd
+          td: code bsk-d-none bsk-d-fhd-block
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible
           td: span.bsk-text-muted #[i.far.fa-eye(aria-hidden='true')] Visible

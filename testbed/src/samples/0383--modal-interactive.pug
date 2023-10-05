@@ -13,32 +13,31 @@ block sample
   section.app-sample-section
     header Static modal
 
-    div.bsk-modal.app-modal-static(tabindex='-1' role='dialog')
-      div.bsk-modal-dialog(role='document')
+    div.bsk-modal.app-modal-static(tabindex='-1' aria-labelledby='example-modal-label' aria-hidden='false')
+      div.bsk-modal-dialog
         div.bsk-modal-content
           div.bsk-modal-header
-            button.bsk-close(type='button' data-dismiss='modal' aria-label='Close')
-              span(aria-hidden='true') &times;
-            h4.bsk-modal-title Modal title
+            h4.bsk-modal-title#example-modal-label Modal title
+            button.bsk-btn-close(type='button' aria-label='Close')
           div.bsk-modal-body
             p Modal content
           div.bsk-modal-footer
-            button.bsk-btn.bsk-btn-default(type='button' data-dismiss='modal') Close
+            button.bsk-btn.bsk-btn-default(type='button' aria-label='Close') Close
             button.bsk-btn.bsk-btn-primary(type='button') Save changes
 
   section.app-sample-section
     header Interactive modal
 
-    button.bsk-btn.bsk-btn-default(type='button' data-toggle='modal' data-target='#example-modal') Trigger modal window
-    div.bsk-modal.bsk-fade#example-modal(tabindex='-1' role='dialog')
-      div.bsk-modal-dialog(role='document')
+    button.bsk-btn.bsk-btn-default(type='button' data-bs-toggle='modal' data-bs-target='#example-modal' role='dialog') Trigger modal window
+    
+    div.bsk-modal.bsk-fade#example-modal(tabindex='-1' aria-labelledby='example-modal-label' aria-hidden='true')
+      div.bsk-modal-dialog
         div.bsk-modal-content
           div.bsk-modal-header
-            button.bsk-close(type='button' data-dismiss='modal' aria-label='Close')
-              span(aria-hidden='true') &times;
             h4.bsk-modal-title Modal title
+            button.bsk-btn-close(type='button' data-bs-dismiss='modal' data-bs-target='#example-modal' aria-label='Close')
           div.bsk-modal-body
             p Modal content
           div.bsk-modal-footer
-            button.bsk-btn.bsk-btn-default(type='button' data-dismiss='modal') Close
+            button.bsk-btn.bsk-btn-default(type='button' data-bs-dismiss='modal' data-bs-target='#example-modal' aria-label='Close') Close
             button.bsk-btn.bsk-btn-primary(type='button') Save changes

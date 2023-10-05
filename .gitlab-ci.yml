@@ -80,7 +80,7 @@ compile-sass-app:
   stage: build
   before_script:
     - "yarn set version berry"
-    - "yarn install"
+    - "yarn install --no-immutable"
   script:
     - "yarn gulp build--css"
   only:
@@ -91,6 +91,7 @@ compile-sass-app:
     name: "$CI_BUILD_TOKEN-dist-styles-app"
     paths:
       - dist/css/styles-bsk.css
+      - dist/css/styles-extra.css
       - dist/css/bootstrap-bsk.css
       - dist/css/fonts-bsk.css
       - dist/css/bas-style-kit.css
@@ -106,7 +107,7 @@ compile-sass-testbed:
     - "cd testbed"
     - "export TESTBED_VERSION=$CI_COMMIT_REF_SLUG"
     - "yarn set version berry"
-    - "yarn install"
+    - "yarn install --no-immutable"
   script:
     - "yarn gulp build--css"
   only:
@@ -122,7 +123,7 @@ compile-js-app:
   stage: build
   before_script:
     - "yarn set version berry"
-    - "yarn install"
+    - "yarn install --no-immutable"
   script:
       - "yarn gulp build--js"
   only:
@@ -145,7 +146,7 @@ compile-js-testbed:
     - "cd testbed"
     - "export TESTBED_VERSION=$CI_COMMIT_REF_SLUG"
     - "yarn set version berry"
-    - "yarn install"
+    - "yarn install --no-immutable"
   script:
     - "yarn gulp build--js"
   only:
@@ -166,7 +167,7 @@ compile-pug-testbed:
     - "cd testbed"
     - "export TESTBED_VERSION=$CI_COMMIT_REF_SLUG"
     - "yarn set version berry"
-    - "yarn install"
+    - "yarn install --no-immutable"
   script:
     - "yarn gulp build--pages"
   only:
@@ -186,7 +187,7 @@ copy-fonts-app:
   stage: build
   before_script:
     - "yarn set version berry"
-    - "yarn install"
+    - "yarn install --no-immutable"
   script:
     - "yarn gulp copy--fonts"
   only:
@@ -203,7 +204,7 @@ copy-images-app:
   stage: build
   before_script:
     - "yarn set version berry"
-    - "yarn install"
+    - "yarn install --no-immutable"
   script:
     - "yarn gulp copy--img"
     - "yarn gulp generate--favicon--manifests"
@@ -226,7 +227,7 @@ copy-images-testbed:
     - "cd testbed"
     - "export TESTBED_VERSION=$CI_COMMIT_REF_SLUG"
     - "yarn set version berry"
-    - "yarn install"
+    - "yarn install --no-immutable"
   script:
     - "yarn gulp copy--img"
   only:
@@ -242,7 +243,7 @@ lint-sass-app:
   stage: lint
   before_script:
     - "yarn set version berry"
-    - "yarn install"
+    - "yarn install --no-immutable"
   script:
     - "yarn gulp lint--sass"
   needs: ["compile-sass-app"]
@@ -255,7 +256,7 @@ lint-js-app:
   stage: lint
   before_script:
     - "yarn set version berry"
-    - "yarn install"
+    - "yarn install --no-immutable"
   script:
     - "yarn gulp lint--js"
   needs: ["compile-js-app"]
@@ -268,7 +269,7 @@ compute-sri-app:
   stage: process
   before_script:
     - "yarn set version berry"
-    - "yarn install"
+    - "yarn install --no-immutable"
   script:
     - "yarn gulp sri"
   artifacts:
@@ -285,6 +286,7 @@ compute-sri-app:
     - master
     - tags
 
+# Review apps upload to the style-kit-testbed.web.bas.ac.uk s3 bucket
 review:
   <<: *job_template_s3_sync
   stage: review
@@ -317,7 +319,7 @@ package-app:
   stage: package
   before_script:
     - "yarn set version berry"
-    - "yarn install"
+    - "yarn install --no-immutable"
   script:
     - "yarn gulp archive--dist"
   artifacts:
@@ -337,7 +339,7 @@ package-testbed:
   before_script:
     - "cd testbed"
     - "yarn set version berry"
-    - "yarn install"
+    - "yarn install --no-immutable"
   script:
     - "yarn gulp archive--public"
   artifacts:

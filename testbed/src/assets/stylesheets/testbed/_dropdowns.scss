@@ -4,4 +4,16 @@
 
 .simulated-state-open {
   display: block;
+  top: 106%;
+  left: 0;
+
+}
+
+.simulated-state-open-dropup {
+  top: auto;
+  bottom: 106%;
+}
+
+.simulated-state-open-split {
+  left: 96px;
 }

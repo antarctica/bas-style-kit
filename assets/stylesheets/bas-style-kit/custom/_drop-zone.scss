@@ -1,0 +1,120 @@
+//
+// Drop Zone
+// --------------------------------------------------
+//
+// These styles create a layout for use with the DropZone JS component inkeeping with the BAS Style Kit.
+//
+// Note: No equivalent of this component exists within Bootstrap, these styles are only found in the BAS Style Kit.
+
+.form-control.dropzone {
+
+    // Base class
+    //
+  
+    height: auto;
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+  
+    // Upload targets
+    //
+  
+    .dropzone-upload-target {
+      padding: $drop-zone-target-padding;
+      border: $drop-zone-target-border-width dashed $drop-zone-target-border-color;
+  
+      .target-inner {
+        padding: $drop-zone-inner-target-padding-v 0;
+        background-color: $drop-zone-inner-target-bg;
+        text-align: center;
+        cursor: pointer;
+      }
+      &.target-initial .target-inner {
+        padding: $drop-zone-initial-inner-target-padding-v 0;
+      }
+      &.target-additional {
+        display: none;
+      }
+    }
+  
+    // File list
+    //
+  
+    .dropzone-file-list {
+      display: none;
+      border: $drop-zone-file-list-border-width solid $drop-zone-file-list-border-color;
+      margin-bottom: $drop-zone-file-list-margin-bottom;
+  
+      .dropzone-file-list-header {
+        font-weight: bold;
+        padding: $drop-zone-file-list-header-padding-v 0;
+        border-bottom: $drop-zone-file-list-header-border-width solid $drop-zone-file-list-header-border-color;
+        text-align: center;
+  
+        @media (min-width: $screen-sm-min) {
+          text-align: left;
+  
+          .header-actions {
+            text-align: right;
+          }
+        }
+      }
+      .dropzone-file-list-item {
+        padding: $drop-zone-file-list-item-padding-v 0;
+        border-bottom: $drop-zone-file-list-item-border-width solid $drop-zone-file-list-item-border-color;
+        text-align: center;
+  
+        @media (min-width: $screen-sm-min) {
+          text-align: left;
+        }
+  
+        &:last-of-type {
+          border-bottom: none;
+        }
+  
+        .item-action-remove {
+          @media (min-width: $screen-sm-min) {
+            text-align: right;
+          }
+  
+          a {
+            text-decoration: underline;
+          }
+        }
+        .item-progress-bar {
+          display: none;
+        }
+      }
+    }
+  }
+  
+  // Errors
+  //
+  
+  .dropzone-errors-container {
+    display: none;
+    margin-bottom: $drop-zone-errors-margin-bottom;
+  }
+  
+  // State modifiers
+  //
+  
+  .form-control.dropzone.dropzone-started {
+    .target-initial {
+      display: none;
+    }
+    .target-additional {
+      display: block;
+      margin: $drop-zone-target-additional-margin;
+    }
+    .dropzone-file-list {
+      display: block;
+    }
+  }
+  
+  .form-control.dropzone.dropzone-errors {
+    .dropzone-errors-container {
+      display: block;
+    }
+  }
+  

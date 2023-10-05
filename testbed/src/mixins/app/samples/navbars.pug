@@ -1,23 +1,28 @@
-mixin navbar--default
-  nav.bsk-navbar(class!=attributes.class)
-    div.bsk-container-fluid
-      block
+mixin navbar--default(item_alignment)
+  nav.bsk-navbar.bsk-navbar-expand(class!=attributes.class)
+    if item_alignment == 'left'
+      div.bsk-container-fluid
+        block
+    else if item_alignment == 'right'
+      div.bsk-container-fluid
+        block
+    else
+      div.bsk-container-fluid
+        block
 
 mixin navbar--header
-  nav.bsk-navbar(class!=attributes.class)
+  nav.bsk-navbar.bsk-navbar-dark.bsk-bg-dark(class!=attributes.class)
     div.bsk-container-fluid
       div.bsk-navbar-header
         block
 
 mixin navbar--collapse
-  nav.bsk-navbar
+  nav.bsk-navbar.bsk-navbar-dark.bsk-bg-dark
     div.bsk-container-fluid
       div.bsk-navbar-header
-        button.bsk-navbar-toggle.bsk-collapsed(type='button' data-toggle='collapse' aria-expanded='false')
-          span.bsk-sr-only Toggle navigation
-          span.bsk-icon-bar
-          span.bsk-icon-bar
-          span.bsk-icon-bar
+        button.bsk-navbar-toggler.bsk-collapsed(type='button' data-bs-toggle='collapse' aria-expanded='false')
+          span.bsk-visually-hidden Toggle navigation
+          span.bsk-navbar-toggler-icon
 
       div.bsk-collapse.bsk-navbar-collapse
         block
@@ -31,7 +36,7 @@ mixin navbar--buttons()
 
     +navbar--default
       button.bsk-btn.bsk-navbar-btn(class!=attributes.class) Action
-      button.bsk-btn.bsk-navbar-btn.bsk-btn-default Another action
+      button.bsk-btn.bsk-navbar-btn.bsk-btn-primary Another action
 
   section.app-sample-section
     header With item
@@ -47,43 +52,42 @@ mixin navbar--lots-of-items(number_of_items)
 
 mixin navbar--form-input
   div.bsk-form-group
-    label.bsk-sr-only input
-    input.bsk-form-control(type='text')
+    label.bsk-visually-hidden input
+    input.bsk-form-select(type='text')
 
 mixin navbar--form-select
   div.bsk-form-group
-    label.bsk-sr-only select input
-    select.bsk-form-control
+    label.bsk-visually-hidden select input
+    select.bsk-form-select
       option(value='option-1') Option 1
       option(value='option-2') Option 2
       option(value='option-3') Option 3
 
 mixin navbar--form-submit
-  button.bsk-btn.bsk-navbar-btn.bsk-btn-default(type='submit') Submit
+  button.bsk-btn.bsk-navbar-btn.bsk-btn-primary(type='submit') Submit
 
 mixin navbar--form-radio-checkbox(variant)
   fieldset.bsk-form-group
-    div(class='bsk-' + variant + '-inline')
-      label.bsk-control-label
-        input(type=variant name='form-radio-example-1' id='form-radio-example-1-a' value='A')
+    div.bsk-form-check.bsk-form-check-inline
+      input.bsk-check-input(type=variant name='form-radio-example-1' id='form-radio-example-1-a' value='A')
+      label.bsk-check-label
         | Option 1 (A)
-    div(class='bsk-' + variant + '-inline')
-      label.bsk-control-label
-        input(type=variant name='form-radio-example-1' id='form-radio-example-1-b' value='B')
+    div.bsk-form-check.bsk-form-check-inline
+      input.bsk-check-input(type=variant name='form-radio-example-1' id='form-radio-example-1-b' value='B')
+      label.bsk-check-label   
         | Option 1 (B)
-    div(class='bsk-' + variant + '-inline')
-      label.bsk-control-label
-        input(type=variant name='form-radio-example-1' id='form-radio-example-1-c' value='C')
+    div.bsk-form-check.bsk-form-check-inline
+      input.bsk-check-input(type=variant name='form-radio-example-1' id='form-radio-example-1-c' value='C')
+      label.bsk-check-label
         | Option 1 (C)
 
 mixin navbar--dropdown
   li.bsk-dropdown
-    a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button')
+    a.bsk-dropdown-toggle.bsk-nav-link(href='#' role='button' id='dropdownMenu1' data-bs-toggle='dropdown' aria-expanded='false')
       | Dropdown
-      span.bsk-caret
-    ul.bsk-dropdown-menu
-      li: a(href='#') Action
-      li: a(href='#') Another item
+    ul.bsk-dropdown-menu(aria-labelledby='dropdownMenu1')
+      li: a.bsk-dropdown-item(href='#') Action
+      li: a.bsk-dropdown-item(href='#') Another item
 
 mixin navbar--link
   a.bsk-navbar-link(href='#') Link
@@ -108,10 +112,9 @@ mixin navbar--item-variant(variant)
       ul.bsk-nav.bsk-navbar-nav
         li: a(href="#") Item
         li.bsk-dropdown
-          a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button')
+          a.bsk-dropdown-toggle.bsk-nav-link(href='#' role='button' id='dropdownMenu1' data-bs-toggle='dropdown' aria-expanded='false')
             | Dropdown
-            span.bsk-caret
-          ul.bsk-dropdown-menu
+          ul.bsk-dropdown-menu(aria-labelledby='dropdownMenu1')
             li: a(href='#') Action
             if variant == 'active'
               li.bsk-active: a(href='#') Active action

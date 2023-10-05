@@ -7,7 +7,7 @@ mixin pop-over--standard(direction)
       +pop-over--standard-common(direction, 'extra top-margin and left-margin added', style)
     else if direction == 'left'
       - var style = {};
-      - style['margin-left'] = '160px'
+      - style['margin-left'] = '280px'
       - style['margin-top'] = '20px'
       +pop-over--standard-common(direction, 'extra left-margin and top-margin added', style)
     else if direction == 'right'
@@ -18,31 +18,42 @@ mixin pop-over--standard(direction)
       - var style = {};
       - style['margin-left'] = '20px'
       +pop-over--standard-common(direction, 'extra left-margin added', style)
-    else
-      +pop-over--standard-common(direction)
 
 mixin pop-over--standard-common(direction, header_extra, style)
   - var attributes = {};
   - attributes['type'] = 'button';
-  - attributes['data-toggle'] = 'tooltip'
-  - attributes['data-placement'] = direction
-  - attributes['title'] = 'tooltip on the ' + direction
+  - attributes['data-bs-toggle'] = 'tooltip'
+  - attributes['data-bs-placement'] = direction
+  - attributes['title'] = 'popover on the ' + direction
   - attributes['style'] = style
 
   header Standard (direction: #{ direction }) #{ header_extra }
   button.bsk-btn.bsk-btn-default(
     type='button'
-    data-toggle='popover'
-    data-placement=direction
-    data-content='Popover content'
+    data-bs-toggle='popover'
+    data-bs-placement=direction
+    data-bs-content='Popover content.'
     style=style
     title='popover on the ' + direction) Popover (#{ direction })
 
 mixin pop-over--static(direction)
-  div.bsk-popover.bsk-fade.bsk-in.app-popover-simulated-state-active(class='bsk-' + direction)
-    if direction == 'top' || direction == 'bottom'
-      div.bsk-arrow(style='left: 50%;')
-    else
-      div.bsk-arrow(style='top: 50%;')
-    h3.bsk-popover-title popover on the #{ direction }
-    div.bsk-popover-content Popover content
+  if direction == 'top'
+    div.popover.bs-popover-auto.show(style="margin:1rem;" data-popper-placement="top")
+      div.popover-arrow(style="position: relative; bottom: -146px;")
+      h3.popover-header popover on the #{ direction }
+      div.popover-body Popover content
+  else if direction == 'right'
+    div.popover.bs-popover-auto.show(style="margin:1rem;" data-popper-placement="right")
+      div.popover-arrow(style="position: relative; transform: translate(-12px, 68px);")
+      h3.popover-header popover on the #{ direction }
+      div.popover-body Popover content
+  else if direction == 'bottom'
+    div.popover.bs-popover-auto.show(style="margin:1rem;" data-popper-placement="bottom")
+      div.popover-arrow(style="position: relative;") 
+      h3.popover-header popover on the #{ direction }
+      div.popover-body Popover content
+  else if direction == 'left'
+    div.popover.bs-popover-auto.show(style="margin:1rem;" data-popper-placement="left")
+      div.popover-arrow(style="position: relative; transform: translate(254px, 52px);")
+      h3.popover-header popover on the #{ direction }
+      div.popover-body Popover content

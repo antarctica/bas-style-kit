@@ -1,40 +1,58 @@
-//
-// Forms
-// --------------------------------------------------
+// @import "forms/labels";
+// @import "forms/form-text";
+@import "forms/form-control";
+@import "forms/form-select";
+// @import "forms/form-check";
+// @import "forms/form-range";
+// @import "forms/floating-labels";
+@import "forms/input-group";
+// @import "forms/validation";
 
-// Common form controls
-//
-// Shared size and type resets for form controls. Apply `.form-control` to any
-// of the following form controls:
-//
-// select
-// textarea
-// input[type="text"]
-// input[type="password"]
-// input[type="datetime"]
-// input[type="datetime-local"]
-// input[type="date"]
-// input[type="month"]
-// input[type="time"]
-// input[type="week"]
-// input[type="number"]
-// input[type="email"]
-// input[type="url"]
-// input[type="search"]
-// input[type="tel"]
-// input[type="color"]
-
-.form-control {
-  box-shadow: none;
-  border-color: $input-border;
-
-  @include form-control-focus;
+.form-group {
+    // display: inline-block;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
-// Feedback states
-.has-success {
-  @include form-control-validation($state-success-text, $state-success-base, $state-success-bg);
+.has-success .form-control {
+    border-color: #379245;
+    box-shadow: none;
 }
-.has-error {
-  @include form-control-validation($state-danger-text, $state-danger-base, $state-danger-bg);
+
+.has-success .help-block,
+.has-success .control-label,
+.has-success .radio,
+.has-success .checkbox,
+.has-success .radio-inline,
+.has-success .checkbox-inline,
+.has-success .radio label,
+.has-success .checkbox label,
+.has-success .radio-inline label,
+.has-success .checkbox-inline label {
+    color: #25622e;
+}
+
+.has-error .form-control {
+    border-color: #b10e1e;
+    box-shadow: none;
+}
+
+.has-error .help-block,
+.has-error .control-label,
+.has-error .radio,
+.has-error .checkbox,
+.has-error .radio-inline,
+.has-error .checkbox-inline,
+.has-error .radio label,
+.has-error .checkbox label,
+.has-error .radio-inline label,
+.has-error .checkbox-inline label {
+    color: #b10e1e;
+}
+
+.form-control[disabled], 
+.form-control[readonly], 
+fieldset[disabled] .form-control {
+    background-color: #eee;
+    opacity: 1;
 }

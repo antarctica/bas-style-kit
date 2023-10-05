@@ -1,7 +1,7 @@
 'use strict';
 /*eslint-env node */
 
-var del  = require('del'),
+var del  = import('del'),
     path = require('path');
 
 var gulp         = require('gulp'),
@@ -9,7 +9,7 @@ var gulp         = require('gulp'),
     map          = require('map-stream'),
     pug          = require('gulp-pug'),
     zip          = require('gulp-zip'),
-    sass         = require('gulp-sass'),
+    sass         = require('gulp-sass')(require('sass')),
     data         = require('gulp-data'),
     concat       = require('gulp-concat'),
     rename       = require('gulp-rename'),

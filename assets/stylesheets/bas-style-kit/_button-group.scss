@@ -1,0 +1,30 @@
+// Make the div behave like a button
+.btn-group,
+.btn-group-vertical {
+  position: relative;
+  // display: inline-block;
+  vertical-align: inherit; // match .btn alignment given font-size hack above
+  > .btn {
+    position: relative;
+    float: none;
+    display: block;
+    // Bring the "active" button to the front
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      z-index: 2;
+    }
+  }
+}
+
+// Optional: Group multiple button groups together for a toolbar
+.btn-toolbar {
+  .btn-group {
+    margin-left: 5px;
+  }
+}
+
+.btn-group-lg > .btn {
+  --bs-btn-border-radius: 0;
+}

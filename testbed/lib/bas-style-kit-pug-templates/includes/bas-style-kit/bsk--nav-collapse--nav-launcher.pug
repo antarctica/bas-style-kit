@@ -1,10 +1,10 @@
 include ../../mixins/bas-style-kit/bsk--nav.pug
 
 if bsk_attributes.site_nav_launcher
-    ul.bsk-nav.bsk-navbar-nav.bsk-navbar-right
-        li.bsk-dropdown
-            a.bsk-dropdown-toggle(href='#' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
-                | #{ bsk_attributes.site_nav_launcher_title } #[span.bsk-caret]
-            ul.bsk-dropdown-menu
+    ul.bsk-nav.bsk-navbar-nav.bsk-ms-auto
+        li.bsk-nav-item.bsk-dropdown
+            a.bsk-dropdown-toggle.bsk-nav-link(href='#' role='button' id='dropdownMenu' data-bs-toggle='dropdown' aria-expanded='false')
+                | #{ bsk_attributes.site_nav_launcher_title }
+            ul.bsk-dropdown-menu.bsk-shadow.bsk-dropdown-menu-lg-end(aria-labelledby='dropdownMenu')
                 each item in bsk_attributes.site_nav_launcher
                     li: a(href=item.href) #{item.title}

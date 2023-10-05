@@ -1,20 +1,29 @@
 // Mixins
 // --------------------------------------------------
 
+// Helpers
+@import "mixins/breakpoints";
+@import "mixins/image";
+
 // Utilities
-@import "mixins/labels";
-@import "mixins/svgs";
+@import "mixins/custom/center-block";
+@import "mixins/custom/grid-framework";
+@import "mixins/custom/opacity";
+@import "mixins/custom/svgs";
+@import "mixins/custom/text-emphasis";
+@import "mixins/custom/background-variant";
 
 // Components
-@import "mixins/alerts";
+@import "mixins/alert";
 @import "mixins/forms";
-@import "mixins/jumbotron";
-@import "mixins/social-media";
+@import "mixins/custom/jumbotron";
+@import "mixins/custom/labels";
+@import "mixins/custom/social-media";
+@import "mixins/custom/tables";
 
 // Layout
-@import "mixins/nav-lg-vertical-align";
-@import "mixins/grid-framework";
+@import "mixins/custom/nav-lg-vertical-align";
 @import "mixins/grid";
 
 // Patterns
-@import "mixins/patterns/layouts";
+@import "mixins/custom/patterns/layouts";

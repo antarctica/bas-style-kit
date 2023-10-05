@@ -23,7 +23,7 @@ block main_content
         | through the Style Kit Documentation.
     section
       div.bsk-row
-        div.bsk-col-12-md-6
+        div.bsk-col-md-6
           h3 All patterns
           ul
             each pattern in patterns
@@ -77,7 +77,7 @@ block main_content
           li some samples may not be listed in any sample collections, such as experiments
     section
       div.bsk-row
-        div.bsk-col-12-md-6
+        div.bsk-col-md-6
           h3 All samples
           ul
             each sample in samples
@@ -96,7 +96,7 @@ block main_content
                     span.bsk-label.bsk-label-experimental Experiment
                     | &nbsp;
                   | #{sample.title}
-        div.bsk-col-12-md-6
+        div.bsk-col-md-6
           h3 Sample collections
           ul
             each collection_samples, collection_name in collections
@@ -120,7 +120,7 @@ block main_content
       | for additions/improvements. This project is inheriently related to branding websites as part of the British
       | Antarctic Survey, and therefore some choices are beyond our control.
 
-    p: a.bsk-btn.bsk-btn-default.bsk-btn-lg.app-spacing-top(href='https://trello.com/b/0Mhzizpk')
+    p: a.bsk-btn.bsk-btn-primary.bsk-btn-lg.app-spacing-top(href='https://trello.com/b/0Mhzizpk')
       i.fab.fa-trello
       |
       | View Trello Board

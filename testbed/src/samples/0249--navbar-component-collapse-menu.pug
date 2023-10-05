@@ -20,8 +20,6 @@ block sample
       | so that it is visible even when the navbar is uncollapsed.
 
     +navbar--header
-      button.bsk-collapsed.app-simulated-state-uncollapsed(type='button' data-toggle='collapse' aria-expanded='false')
-        span.bsk-sr-only Toggle navigation
-        span.app-bsk-icon-bar
-        span.app-bsk-icon-bar
-        span.app-bsk-icon-bar
+      button.bsk-collapsed.bsk-navbar-toggler.app-simulated-state-uncollapsed(type='button' data-bs-toggle='collapse' aria-expanded='false')
+        span.bsk-visually-hidden Toggle navigation
+        span.bsk-navbar-toggler-icon

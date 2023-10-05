@@ -2,26 +2,26 @@ mixin thumbnail--collection()
   section.app-sample-section
     header: code div
     div.bsk-row
-      div.bsk-col-12-md-4
+      div.bsk-col-md-4
         +thumbnail--basic('div', attributes.class)
 
   section.app-sample-section
     header: code a
     div.bsk-row
-      div.bsk-col-12-md-4
+      div.bsk-col-md-4
         +thumbnail--basic('a', attributes.class)
 
   section.app-sample-section
     header #[code div] with #[code bsk-caption]
     div.bsk-row
-      div.bsk-col-12-md-4
+      div.bsk-col-md-4
         +thumbnail--caption('div', attributes.class)
           | Thumbnail caption
 
   section.app-sample-section
     header #[code div] with linked #[code bsk-caption]
     div.bsk-row
-      div.bsk-col-12-md-4
+      div.bsk-col-md-4
         +thumbnail--caption('div', attributes.class)
           | Thumbnail caption #[a(href='#') with link]
 

@@ -1,0 +1,53 @@
+//
+// Sortable
+// --------------------------------------------------
+//
+// These styles create a layout for use with the HTML5 Sortable JS component inkeeping with the BAS Style Kit.
+//
+// Note: No equivalent of this component exists within Bootstrap, these styles are only found in the BAS Style Kit.
+
+.sortable {
+
+    // Lists
+    //
+  
+    &.sortable-list {
+      li {
+        margin-bottom: 5px;
+        padding: 15px;
+        background-color: #eee;
+  
+        &:hover {
+          background-color: darken(#eee, 10%);
+          cursor: grab;
+        }
+  
+        &.disabled {
+          color: #777;
+          background-color: transparent;
+          cursor: not-allowed;
+        }
+      }
+    }
+  
+    .sortable-list-placeholder {
+      border: 2px dashed #999;
+    }
+  
+    // Tables
+    //
+  
+    &.sortable-table {
+      tr {
+        &:hover {
+          cursor: grab;
+        }
+  
+        &.disabled {
+          color: #777;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+  

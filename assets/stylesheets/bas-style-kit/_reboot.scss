@@ -1,0 +1,75 @@
+// Reboot
+
+%heading {
+  margin-top: 0; // 1
+  margin-bottom: $headings-margin-bottom;
+  font-family: $headings-font-family;
+  font-style: $headings-font-style;
+  font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+  color: $headings-color;
+}
+
+h1 {
+  @extend %heading;
+  @include font-size($h1-font-size);
+}
+
+h2 {
+  @extend %heading;
+  @include font-size($h2-font-size);
+}
+
+h3 {
+  @extend %heading;
+  @include font-size($h3-font-size);
+}
+
+h4 {
+  @extend %heading;
+  @include font-size($h4-font-size);
+}
+
+h5 {
+  @extend %heading;
+  @include font-size($h5-font-size);
+}
+
+h6 {
+  @extend %heading;
+  @include font-size($h6-font-size);
+}
+
+// Horizontal rules
+
+hr {
+  border: 0;
+  border-top: 0.063rem solid #eee;
+  opacity: 1;
+
+  &.hr-dashed {
+    border-top-style: dashed;
+    border-top-width: $hr-dashed-border-width;
+  }
+}
+
+// Blockquote
+
+blockquote {
+  padding: calc($line-height-computed / 2) $line-height-computed;
+  margin: 0 0 1rem;
+  border-left: 5px solid $blockquote-border-color;
+}
+
+// Strong
+//
+// Add the correct font weight in Chrome, Edge, and Safari
+
+b,
+strong {
+  font-weight: $font-weight-bold;
+}
+
+legend {
+  border-bottom: 1px solid #e5e5e5;
+}

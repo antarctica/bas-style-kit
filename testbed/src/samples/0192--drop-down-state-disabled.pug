@@ -1,7 +1,7 @@
 //-
   sample:
     title: Drop down menu - disabled item
-    code: .bsk-dropdown .bsk-dropdown-menu .bsk-disabled
+    code: .bsk-dropdown-item .bsk-disabled li a.bsk-disabled
   collections:
     - components--drop-downs
   ---
@@ -13,4 +13,5 @@ block sample
   section.app-sample-section
     header Standard
     +dropdown--component
-      li.bsk-disabled: a(href='#') Disabled action
+      li
+        a.bsk-dropdown-item.bsk-disabled(href='#' tabindex='-1' aria-disabled='true') Disabled action

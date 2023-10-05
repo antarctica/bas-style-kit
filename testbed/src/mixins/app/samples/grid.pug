@@ -2,22 +2,22 @@ mixin grid--columns(number_of_columns)
   each grid_col in [...Array(number_of_columns - 1).keys()]
     if number_of_columns % (grid_col + 1) == 0
       div.app-spacing-top
-        p.bsk-text-info #{ number_of_columns / (grid_col + 1) } x #[code bsk-col-#{ number_of_columns }-md-#{ grid_col + 1 }]
+        p.bsk-text-info #{ number_of_columns / (grid_col + 1) } x #[code bsk-col-md-#{ grid_col + 1 }]
         div.bsk-row
           each column_count in [...Array(number_of_columns / (grid_col + 1)).keys()]
-            div(class='bsk-col-' + number_of_columns + '-md-' + (grid_col + 1) + ' app-visible-col-' + (column_count + 1) )
+            div(class='bsk-col-md-' + (grid_col + 1) + ' app-visible-col-' + (column_count + 1) )
 
   div.app-spacing-top
-    p.bsk-text-info 1 x #[code bsk-col-#{ number_of_columns }-md-#{ number_of_columns }]
+    p.bsk-text-info 1 x #[code bsk-col-md-#{ number_of_columns }]
     div.bsk-row
-      div(class='bsk-col-' + number_of_columns + '-md-' + number_of_columns + ' app-visible-col-1')
+      div(class='bsk-col-md-' + number_of_columns + ' app-visible-col-1')
 
 mixin grid--columns-offset(number_of_columns)
   div.bsk-row.app-spacing-top
-    p.bsk-text-info #[code bsk-col-#{ number_of_columns }-md-1]
-    div(class='bsk-col-' + number_of_columns + '-md-1 app-visible-col-1')
+    p.bsk-text-info #[code bsk-col-md-1]
+    div(class='bsk-col-md-1 app-visible-col-1')
 
   each grid_col in [...Array(number_of_columns - 1).keys()]
     div.bsk-row.app-spacing-top
-      p.bsk-text-info #[code bsk-col-#{ number_of_columns }-md-offset-#{ grid_col + 1 } bsk-col-#{ number_of_columns }-md-1]
-      div(class='bsk-col-' + number_of_columns + '-md-offset-' + (grid_col + 1) + ' bsk-col-' + number_of_columns + '-md-1 app-visible-col-1')
+      p.bsk-text-info #[code bsk-offset-md-#{ grid_col + 1 } bsk-col-md-1]
+      div(class='bsk-offset-md-' + (grid_col + 1) + ' bsk-col-md-1 app-visible-col-1')

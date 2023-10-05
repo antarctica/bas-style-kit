@@ -1,0 +1,4 @@
+.badge {
+    @include gradient-bg($badge-bg);
+    border-radius: 0.6rem;
+}

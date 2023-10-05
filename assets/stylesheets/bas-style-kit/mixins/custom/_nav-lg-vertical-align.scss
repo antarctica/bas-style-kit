@@ -1,0 +1,10 @@
+// Navbar large vertical align
+//
+// Vertically center elements in a large navbar.
+// Example: an element has a height of 30px, so write out: `@include navbar-lg-vertical-align(30px);`
+// to calculate the appropriate top margin.
+
+@mixin navbar-lg-vertical-align($element-height) {
+  margin-top: (calc(($navbar-lg-height - $element-height) / 2) - 2);
+  margin-bottom: (calc(($navbar-lg-height - $element-height) / 2) - 2);
+}

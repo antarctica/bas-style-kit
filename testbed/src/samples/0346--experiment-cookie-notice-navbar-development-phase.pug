@@ -22,8 +22,8 @@ block sample
         | Using a fixed-width container.
 
     div.bsk-container.app-spacing-bottom
-      div.bsk-alert.bsk-alert-static-top.bsk-alert-dismissible.bsk-alert-solid.bsk-alert-cookie-notice(role='alert')
-        button.bsk-close(type='button' data-dismiss='alert' aria-label='Close') &times;
+      div#bsk-alert-1.bsk-alert.bsk-alert-static-top.bsk-alert-dismissible.bsk-alert-solid.bsk-alert-cookie-notice(role='alert')
+        button.bsk-close(type='button' data-bs-dismiss='alert' data-bs-target='#bsk-alert-1' aria-label='Close') &times;
         | This website uses cookies to help us make it better - #[a.bsk-alert-link(href='#') find out more].
       nav.bsk-navbar.bsk-navbar-static-top
         div.bsk-container-fluid
@@ -43,8 +43,8 @@ block sample
         | Using a fluid-width container.
 
     div.bsk-container-fluid.app-spacing-bottom
-      div.bsk-alert.bsk-alert-static-top.bsk-alert-dismissible.bsk-alert-solid.bsk-alert-cookie-notice(role='alert')
-        button.bsk-close(type='button' data-dismiss='alert' aria-label='Close') &times;
+      div#bsk-alert-2.bsk-alert.bsk-alert-static-top.bsk-alert-dismissible.bsk-alert-solid.bsk-alert-cookie-notice(role='alert')
+        button.bsk-close(type='button' data-dismiss='alert' data-bs-target='#bsk-alert-2' aria-label='Close') &times;
         | This website uses cookies to help us make it better - #[a.bsk-alert-link(href='#') find out more].
       nav.bsk-navbar.bsk-navbar-static-top
         div.bsk-container-fluid

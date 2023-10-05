@@ -1,0 +1,46 @@
+.dropdown-menu {  
+  // Links within the dropdown menu
+  > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: $line-height-base;
+    color: $dropdown-link-color;
+    white-space: nowrap; // prevent links from randomly breaking onto new lines
+    text-decoration: None;
+    padding: 10px;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    
+    &:hover,
+    &:focus {
+      color: $dropdown-link-hover-color;
+      text-decoration: none;
+      background-color: $dropdown-link-hover-bg;
+    }
+  }
+  .active > a {
+    color: var(--#{$prefix}dropdown-link-active-color);
+    text-decoration: none;
+    @include gradient-bg(var(--#{$prefix}dropdown-link-active-bg));
+
+    &:hover,
+    &:focus {
+      color:            $navbar-link-active-color;
+      background-color: $navbar-link-active-bg;
+    }
+  }
+}
+
+
+// Disabled state
+//
+// Gray out text and ensure the hover/focus state remains gray
+
+.dropdown-menu > li > .disabled {
+  &:hover,
+  &:focus {
+    cursor: $cursor-disabled;
+    pointer-events: all !important;
+  }
+}

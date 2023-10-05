@@ -1,7 +1,7 @@
 //-
   sample:
     title: Forms - inline checkbox input
-    code: .bsk-checkbox-inline input[type="checkbox"]
+    code: .bsk-form-check .bsk-form-check-inline input[type="checkbox"]
   collections:
     - core--forms
   ---
@@ -10,4 +10,4 @@ extends ../layouts/app-sample.pug
 include ../mixins/app/samples/forms.pug
 
 block sample
-  +form-input-radio-checkbox--collection('checkbox', 'bsk-checkbox-inline')
+  +form-input-radio-checkbox--collection('checkbox', 'bsk-form-check bsk-form-check-inline')

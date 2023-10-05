@@ -1,6 +1,7 @@
-FROM node:erbium-alpine
+# Style-kit
+FROM node:lts-alpine3.17
 
-LABEL maintainer="Felix Fennell <felnne@bas.ac.uk>"
+LABEL maintainer="Web & Apps <webapps@bas.ac.uk>"
 
 # Setup project
 WORKDIR /usr/src/app
@@ -14,7 +15,8 @@ RUN mkdir -p /usr/src/lib/yarn && \
     yarn install
 
 # Run tests
-RUN echo "node version: " && node --version && \
+RUN echo "style-kit" && \
+    echo "node version: " && node --version && \
     echo "npm version: " && npm --version && \
     echo "yarn version: " && yarn --version && \
     echo "gulp version: " && yarn gulp --version
