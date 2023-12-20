@@ -50,8 +50,8 @@ cc.run({
     languages: {
         'en': {
             consent_modal: {
-                title: 'We use cookies!',
-                description: 'Hi, this website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only after consent. <button type="button" data-cc="c-settings" class="cc-link">Let me choose</button>',
+                title: 'Website cookies',
+                description: 'This website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only after consent. <button type="button" data-cc="c-settings" class="cc-link">Let me choose</button>',
                 primary_btn: {
                     text: 'Accept all',
                     role: 'accept_all'              // 'accept_selected' or 'accept_all'
@@ -108,17 +108,19 @@ cc.run({
                                 col4: 'description ...',
                             }
                         ]
-                    }, {
-                        title: 'Advertisement and Targeting cookies',
-                        description: 'These cookies collect information about how you use the website, which pages you visited and which links you clicked on. All of the data is anonymized and cannot be used to identify you',
-                        toggle: {
-                            value: 'targeting',
-                            enabled: false,
-                            readonly: false
-                        }
-                    }, {
+                    }, 
+                    // {
+                    //     title: 'Advertisement and Targeting cookies',
+                    //     description: 'These cookies collect information about how you use the website, which pages you visited and which links you clicked on. All of the data is anonymized and cannot be used to identify you',
+                    //     toggle: {
+                    //         value: 'targeting',
+                    //         enabled: false,
+                    //         readonly: false
+                    //     }
+                    // },
+                    {
                         title: 'More information',
-                        description: 'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="#yourcontactpage">contact us</a>.',
+                        description: 'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="#">contact us</a>.',
                     }
                 ]
             }

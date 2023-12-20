@@ -1,5 +1,9 @@
 // Reboot
 
+:root {
+  --bs-border: none;
+}
+
 %heading {
   margin-top: 0; // 1
   margin-bottom: $headings-margin-bottom;
