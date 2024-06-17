@@ -1,7 +1,7 @@
 {
   "name": "@antarctica/bas-style-kit",
   "description": "A collection of HTML, CSS, and JS components for developing web projects consistent with the BAS brand.",
-  "version": "0.7.0-alpha",
+  "version": "0.7.3",
   "homepage": "https://style-kit.web.bas.ac.uk",
   "author": "British Antarctic Survey",
   "contributors": [
